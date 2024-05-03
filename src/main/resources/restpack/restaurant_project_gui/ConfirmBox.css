@@ -1,0 +1,41 @@
+/* confirm.css */
+.root {
+    -fx-padding: 20;
+    -fx-background-color: #f4f4f4;
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+    -fx-font-family: 'Arial', sans-serif; /* Arial is a safe and clean font choice */
+}
+
+.button {
+    -fx-font-size: 15px;
+    -fx-background-color: #5cb85c; /* Green color for the 'YES' button */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #4cae4c; /* Darker green on hover */
+}
+
+#yesButton {
+    -fx-font-size: 15px;
+    -fx-background-color: #d9534f; /* Red color for the 'NO' button */
+}
+
+#yesButton:hover {
+    -fx-background-color: #c9302c; /* Darker red on hover */
+}
+
+
+#hbox {
+    -fx-spacing: 25; /* Spacing between YES and NO buttons */
+}
+#vbox {
+    -fx-spacing: 10; /* Spacing between YES and NO buttons */
+}
