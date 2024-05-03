@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,7 +13,6 @@ import java.io.IOException;
 public class Restaurant_app_gui extends Application {
 
     Stage window;
-    Scene scene;
     public static void main(String[] args) {
         launch();
     }
@@ -25,18 +25,10 @@ public class Restaurant_app_gui extends Application {
             e.consume();
             closePrograme();
         });
-        Alert alertMsg = new Alert ();
-        TakeAway takeAwaySceneObject = new TakeAway(scene,window);
-
-        Button takeAway = new Button("TakeAway") , dineIn = new Button("DineIn") , manager  = new Button("Manager");
-        takeAway.setOnAction(e -> window.setScene(takeAwaySceneObject.getScene()));
-        dineIn.setOnAction(e -> alertMsg.display ("Under Construction" , "Thank you for using our service! \n           Under construction") );
-        manager.setOnAction(e -> alertMsg.display ("Under Construction" , "Thank you for using our service! \n           Under construction") );
-        HBox layout = new HBox() ;
-        layout.setAlignment(Pos.CENTER);
-        layout.getChildren().addAll(dineIn,takeAway , manager);
-        scene = new Scene(layout) ;
-        window.setScene(scene);
+//        TakeAway takeAwaySceneObj = new TakeAway();
+        Home home =new Home();
+        Scene homeScene =home.createScene(window) ;
+        window.setScene(homeScene);
         window.show();
     }
     private void closePrograme(){

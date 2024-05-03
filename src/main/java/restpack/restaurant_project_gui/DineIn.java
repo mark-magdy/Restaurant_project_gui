@@ -9,9 +9,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
-public class TakeAway {
+public class DineIn {
     Scene homeScene;
-    public Scene createScene (Stage window){
+    public  Scene createScene (Stage window){
         Button back = new Button("Back");
         Scene scene ;
         Home home = new Home();
@@ -24,7 +24,6 @@ public class TakeAway {
         } );
         lay.getChildren().addAll(back);
         scene =new Scene(lay) ;
-//        scene.getStylesheets().add(getClass().getResource("takeaway.css").toExternalForm());
         return scene;
     }
 }

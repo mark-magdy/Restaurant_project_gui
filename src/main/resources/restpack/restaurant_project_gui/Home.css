@@ -1,0 +1,20 @@
+.root {
+    -fx-padding: 20;
+    -fx-background-color: #cbcbcb;
+}
+
+.button {
+    -fx-background-color: #575757;
+    -fx-font-size: 16;
+    -fx-display: inline-block;
+    -fx-text-align: center;
+    -fx-spacing: 30 ;
+    -fx-min-height: 100;
+    -fx-min-width: 100;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+#hbox {
+    -fx-spacing: 45; /* Spacing between YES and NO buttons */
+}
