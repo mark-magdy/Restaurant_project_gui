@@ -1,0 +1,50 @@
+.root {
+    -fx-padding: 20;
+    -fx-background-color: #cbcbcb;
+}
+
+/*#buttonTable {*/
+/*    -fx-background-color: #b09494;*/
+/*    -fx-font-size: 16;*/
+/*    -fx-display: inline-block;*/
+/*    -fx-text-align: center;*/
+/*    !*-fx-spacing: 30 ;*!*/
+/*    -fx-min-width: 100;*/
+/*    -fx-min-height: 100;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-cursor: hand;*/
+/*    !*-fx-padding: 20,20,20,20;*!*/
+/*}*/
+/*#buttonTable:hover{*/
+/*    -fx-background-color: #5a73a7;*/
+/*}*/
+#buttonTable {
+    -fx-background-color: #4CAF50; /* Green */
+    -fx-font-size: 16;
+    -fx-text-align: center;
+    -fx-min-width: 100px; /* Added "px" unit */
+    -fx-min-height: 100px; /* Added "px" unit */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px; /* Increased border radius for more rounded corners */
+    -fx-border-color: #388E3C; /* Border color */
+    -fx-border-width: 2px; /* Border width */
+}
+
+#buttonTable:hover {
+    -fx-background-color: #43A047; /* Darker green on hover */
+}
+
+#buttonTable:pressed {
+    -fx-background-color: #388E3C; /* Even darker green when pressed */
+}
+#backBtn {
+    -fx-background-color: transparent;
+}
+#backBtn:hover{
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+
+}

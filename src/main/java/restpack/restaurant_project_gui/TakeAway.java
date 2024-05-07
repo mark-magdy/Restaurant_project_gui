@@ -10,21 +10,19 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class TakeAway {
-    Scene homeScene;
+    Scene homeScene,scene;
+    Home home = new Home();
+    StackPane lay = new StackPane();
+
     public Scene createScene (Stage window){
         Button back = new Button("Back");
-        Scene scene ;
-        Home home = new Home();
         homeScene = home.createScene(window);
-        StackPane lay = new StackPane();
         back.setOnAction(e ->{
             window.setScene(homeScene);
-            window.close();
-            window.show ();
         } );
         lay.getChildren().addAll(back);
         scene =new Scene(lay) ;
-//        scene.getStylesheets().add(getClass().getResource("takeaway.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("takeaway.css").toExternalForm());
         return scene;
     }
 }
