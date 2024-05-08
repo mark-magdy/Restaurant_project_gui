@@ -2,12 +2,18 @@ package MenuPack;
 
 import java.util.Objects;
 
-public class MenuItem {
-     String name;
-     double price;
-     int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
+public class MenuItem implements Comparable<MenuItem> {
+    private String name;
+     private double price;
+      public int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
+     private String comment;
 
-
+    public MenuItem(String name, double price, int quantity,String comment) {
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = quantity;
+        this.comment=comment;
+    }
     public MenuItem(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
@@ -54,5 +60,12 @@ public class MenuItem {
     @Override
     public int hashCode() {
         return Objects.hash(name, price, stockQuantity);
+    }
+
+    @Override
+    public int compareTo(MenuItem o) {
+        if(this.price<o.price)return -1;
+        if(this.price>o.price)return 1;
+        return 0;
     }
 }
