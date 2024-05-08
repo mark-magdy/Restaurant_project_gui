@@ -2,13 +2,17 @@ package MenuPack;
 
 import java.util.ArrayList;
 
-public abstract class MenuSection {
+public  class MenuSection {
     String name ;
     ArrayList<MenuItem> items=new ArrayList<MenuItem>();
    // MenuItem [] menuItems = new MenuItem[20]; // TODO: use lists instead of Arrays
     //int lengthOfMenuItems = 0 ;
 
     public MenuSection() {}
+
+    public MenuSection(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;

@@ -1,7 +1,20 @@
 package MenuPack;
 
+import java.util.ArrayList;
+
 public class Menu {
-    MenuSection drinks , sandwiches ,pizza,meals;
+    ArrayList<MenuSection>sections=new ArrayList<MenuSection>();
+    ArrayList<Meals>meals=new ArrayList<Meals>();
+   Menu()
+   {
+
+       sections.add(new MenuSection("Sandwiches")) ;
+       sections.add(new MenuSection("Pizza")) ;
+       sections.add(new MenuSection("Desserts")) ;
+       sections.add(new MenuSection("Hot drinks")) ;
+       sections.add(new MenuSection("Cold drinks")) ;
+
+   }
 
     // TODO: return each section in array (recommended to be List see List) to be viewed
     // TODO: function extend sections
