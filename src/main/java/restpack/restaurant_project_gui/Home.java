@@ -14,7 +14,7 @@ public class Home {
 
     Button takeAwayBut = new Button("TakeAway") ,
             dineIn = new Button("DineIn") ,
-            manager  = new Button("Manager");
+            settings  = new Button("Settings");
 
     HBox layout = new HBox() ;
     Alert alertMsg = new Alert ();
@@ -22,6 +22,7 @@ public class Home {
         Scene scene;
         TakeAway takeAwayObj = new TakeAway();
         DineIn dineInObj = new DineIn();
+        SettingsGui settingsGuiObj = new SettingsGui();
 
         //Scene takeAwayScene = takeAwayObj.createScene(window);
         takeAwayBut.setOnAction(e -> {
@@ -31,11 +32,15 @@ public class Home {
             Scene tmp = dineInObj.createScene(window,asuResto);
             window.setScene(tmp);
         });
-        manager.setOnAction(e -> alertMsg.display ("Under Construction" , "Thank you for using our service! \n           Under construction") );
+//        manager.setOnAction(e -> alertMsg.display ("Under Construction" , "Thank you for using our service! \n           Under construction") );
+        settings.setOnAction(e -> {
+            Scene tmp = settingsGuiObj.createScene(window,asuResto);
+            window.setScene(tmp);
+        });
         layout.setId("hbox");
         layout.setAlignment(Pos.CENTER);
         layout.getChildren().removeAll();
-        layout.getChildren().addAll(dineIn,takeAwayBut, manager);
+        layout.getChildren().addAll(dineIn,takeAwayBut, settings);
         scene = new Scene(layout);
         scene.getStylesheets().add(getClass().getResource("Home.css").toExternalForm());
         return scene;

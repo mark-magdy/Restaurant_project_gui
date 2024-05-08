@@ -43,9 +43,6 @@ public class MenuItem {
     public void setStockQuantity(int quantity) {
         this.stockQuantity = quantity;
     }
-    //TODO: override equals function
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
