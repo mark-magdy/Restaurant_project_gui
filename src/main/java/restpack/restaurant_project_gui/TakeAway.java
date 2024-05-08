@@ -8,15 +8,16 @@ import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import restLogic.Restaurant;
 
 public class TakeAway {
     Scene homeScene,scene;
     Home home = new Home();
     StackPane lay = new StackPane();
 
-    public Scene createScene (Stage window){
+    public Scene createScene (Stage window , Restaurant asuResto){
         Button back = new Button("Back");
-        homeScene = home.createScene(window);
+        homeScene = home.createScene(window,asuResto);
         back.setOnAction(e ->{
             window.setScene(homeScene);
         } );

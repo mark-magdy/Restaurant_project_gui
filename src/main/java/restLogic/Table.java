@@ -5,6 +5,14 @@ public class Table {
     Order order ;
 
     // methods: addItemInOrder , removeItemInOrder , getBill , ClearTable ,  ShowAlreadyOrderedItems --> return already ordered
+    public void addItemInOrder (){
 
+    }
+    public void removeItemInOrder (){
+
+    }
+    public double getBill (){
+        return order.getBill();
+    }
 
 }

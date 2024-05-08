@@ -1,9 +1,11 @@
 package MenuPack;
 
+import java.util.Objects;
+
 public class MenuItem {
-    private String name;
-    private double price;
-    private int quantity;  // to check if it available or not  ... and for manager to see his stock
+     String name;
+     double price;
+     int quantity;  // to check if it available or not  ... and for manager to see his stock
 
     public MenuItem(String name, double price, int quantity) {
         this.name = name;
@@ -40,5 +42,19 @@ public class MenuItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+    //TODO: override equals function
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MenuItem menuItem = (MenuItem) o;
+        return Double.compare(price, menuItem.price) == 0 && quantity == menuItem.quantity && Objects.equals(name, menuItem.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, quantity);
+    }
 }

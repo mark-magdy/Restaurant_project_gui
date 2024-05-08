@@ -13,12 +13,31 @@ public class Order  {
         orderItemList = new ArrayList<>();
     }
     public void addItem (MenuItem menuItem, int quantity){
+        for (OrderItem i : orderItemList){
+            if ( i.getMenuItem().equals(menuItem)){
+                i.incQuantity(quantity);
+                return ;
+            }
+        }
         orderItemList.add(new OrderItem(menuItem,quantity));
     }
     public void addItem (MenuItem menuItem){
+        for (OrderItem i : orderItemList){
+            if ( i.getMenuItem().equals(menuItem)){
+                i.incQuantity();
+                return ;
+            }
+        }
         orderItemList.add(new OrderItem(menuItem,1));
     }
     // TODO: removeItem function
+    public void removeItem (MenuItem menuItem){
+        for (OrderItem i : orderItemList){
+            if ( i.getMenuItem().equals(menuItem)){
+                i.decQuantity();
+            }
+        }
+    }
 
 
     public List<OrderItem> getOrderItemList() {

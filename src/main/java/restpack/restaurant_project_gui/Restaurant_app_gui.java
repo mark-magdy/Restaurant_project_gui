@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import restLogic.Restaurant;
 
 import java.io.IOException;
 
@@ -20,6 +21,7 @@ public class Restaurant_app_gui extends Application {
     }
     @Override
     public void start(Stage stage) throws IOException {
+        Restaurant asuResto = new Restaurant("ASU", "Abdo Basha Street");
         window= stage ;
         window.setWidth(800);window.setHeight(500);
         window.setTitle("ASU Restaurant");
@@ -29,8 +31,7 @@ public class Restaurant_app_gui extends Application {
             e.consume();
             closePrograme();
         });
-
-        Scene homeScene =home.createScene(window) ;
+        Scene homeScene =home.createScene(window, asuResto) ;
         window.setScene(homeScene);
         window.show();
     }

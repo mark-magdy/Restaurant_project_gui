@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import restLogic.Restaurant;
 
 
 public class Home {
@@ -17,17 +18,17 @@ public class Home {
 
     HBox layout = new HBox() ;
     Alert alertMsg = new Alert ();
-    public  Scene createScene(Stage window){
+    public  Scene createScene(Stage window , Restaurant asuResto){
         Scene scene;
         TakeAway takeAwayObj = new TakeAway();
         DineIn dineInObj = new DineIn();
 
         //Scene takeAwayScene = takeAwayObj.createScene(window);
         takeAwayBut.setOnAction(e -> {
-            window.setScene(takeAwayObj.createScene(window));
+            window.setScene(takeAwayObj.createScene(window, asuResto));
         });
         dineIn.setOnAction(e -> {
-            Scene tmp = dineInObj.createScene(window);
+            Scene tmp = dineInObj.createScene(window,asuResto);
             window.setScene(tmp);
         });
         manager.setOnAction(e -> alertMsg.display ("Under Construction" , "Thank you for using our service! \n           Under construction") );

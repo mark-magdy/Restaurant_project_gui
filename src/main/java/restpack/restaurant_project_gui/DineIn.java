@@ -9,6 +9,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import restLogic.Restaurant;
 
 public class DineIn {
     Button back , table;
@@ -17,11 +18,12 @@ public class DineIn {
     GridPane grid = new GridPane() ;
     Button [] buttons = new Button[9] ;
     BorderPane borderPane = new BorderPane();
+    TableGui tableGui = new TableGui();
 
-    public  Scene createScene (Stage window){
+    public  Scene createScene (Stage window , Restaurant asuResto){
         // back button to return the prev scene
         back = new Button("Back");
-        homeScene = home.createScene(window);
+        homeScene = home.createScene(window,asuResto);
         back.setOnAction(e ->{
             window.setScene(homeScene);
         } );
@@ -30,6 +32,11 @@ public class DineIn {
                 buttons[i*3+j-1] = new Button("Table"+(i*3+j));
                 buttons[i*3+j-1].setId("buttonTable");
                 grid.add(buttons[i*3+j-1], j+1, i+1);
+                final int tableID = i*3+j-1 ;
+                buttons[i*3+j-1].setOnAction(e->{
+                    window.setScene(tableGui.createScene(window, asuResto,tableID));
+                });
+
             }
         }
 
