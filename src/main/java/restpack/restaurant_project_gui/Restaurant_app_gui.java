@@ -21,7 +21,8 @@ public class Restaurant_app_gui extends Application {
     }
     @Override
     public void start(Stage stage) throws IOException {
-        Restaurant asuResto = new Restaurant("ASU", "Abdo Basha Street");
+        Restaurant asuResto = new Restaurant("ASU", "Abdo Basha Street",9);
+        System.out.println("resto in main table ref"+ asuResto.getTables().get(0));
         window= stage ;
         window.setWidth(800);window.setHeight(500);
         window.setTitle("ASU Restaurant");

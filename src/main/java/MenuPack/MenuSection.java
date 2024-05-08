@@ -15,7 +15,7 @@ public abstract class MenuSection {
         for ( int i = 0 ; i < lengthOfMenuItems ; i++ ){
             if (menuItems[i].getName() == name ){
                 //TODO: check have same price if true continue if not have same price there is error try ctach
-                menuItems[i].setQuantity(menuItems[i].getQuantity()+quantity);
+                menuItems[i].setStockQuantity(menuItems[i].getStockQuantity()+quantity);
                 return ;
             }
         }

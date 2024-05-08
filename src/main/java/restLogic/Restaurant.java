@@ -3,20 +3,28 @@ package restLogic;
 
 import MenuPack.Menu;
 
-public class Restaurant {
-    String name ;
-    String address ;
-    Menu mainMenu ;
-    Table [] tables = new Table[9];
-    Order takeaway ;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Restaurant(String name, String address) {
+public class Restaurant {
+    String name;
+    String address;
+    Menu mainMenu;
+    private List<Table> tablesList = new ArrayList<>();
+    Order takeaway;
+
+    public Restaurant(String name, String address , int noTables) {
         this.name = name;
         this.address = address;
+        for (int i = 0; i < noTables; i++) {
+            tablesList.add(new Table());
+        }
+
+
     }
 
-    public Table[] getTables() {
-        return tables;
+    public List<Table> getTables() {
+        return tablesList;
     }
 
     public Menu getMainMenu() {

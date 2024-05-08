@@ -14,12 +14,12 @@ public class OrderItem {
     public MenuItem getMenuItem() {
         return menuItem;
     }
-
+    public String getName(){return menuItem.getName();}
     public int getQuantity() {
         return quantity;
     }
     public double getPrice() {
-        return menuItem.getPrice();
+        return menuItem.getPrice()*quantity;
     }
     public void incQuantity (){
         quantity++;

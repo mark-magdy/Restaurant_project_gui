@@ -5,18 +5,19 @@ import java.util.Objects;
 public class MenuItem {
      String name;
      double price;
-     int quantity;  // to check if it available or not  ... and for manager to see his stock
+     int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
+
 
     public MenuItem(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
+        this.stockQuantity = quantity;
     }
 
     public MenuItem(String name, int price) {
         this.name = name;
         this.price = price;
-        quantity = 1 ;
+        stockQuantity = 1 ;
     }
 
     public String getName() {
@@ -35,12 +36,12 @@ public class MenuItem {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setStockQuantity(int quantity) {
+        this.stockQuantity = quantity;
     }
     //TODO: override equals function
 
@@ -50,11 +51,11 @@ public class MenuItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MenuItem menuItem = (MenuItem) o;
-        return Double.compare(price, menuItem.price) == 0 && quantity == menuItem.quantity && Objects.equals(name, menuItem.name);
+        return Double.compare(price, menuItem.price) == 0 && stockQuantity == menuItem.stockQuantity && Objects.equals(name, menuItem.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, quantity);
+        return Objects.hash(name, price, stockQuantity);
     }
 }
