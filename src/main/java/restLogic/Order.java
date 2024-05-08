@@ -35,6 +35,10 @@ public class Order  {
         for (OrderItem i : orderItemList){
             if ( i.getMenuItem().equals(menuItem)){
                 i.decQuantity();
+                if (i.getQuantity()==0) {
+                    orderItemList.remove(i);
+                }
+                break ;
             }
         }
     }

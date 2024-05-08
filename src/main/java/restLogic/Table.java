@@ -5,10 +5,18 @@ import MenuPack.MenuItem;
 import java.util.List;
 
 public class Table {
-    int state ; // TODO: need ot be updated to enum
+    private Table.State state;
+
+    //    int state ; // TODO: need ot be updated to enum
+    public enum State {
+        EMPTY,
+        HAVE_ORDER,
+        RESERVED
+    }
     Order order ;
 
     public Table() {
+        State state = State.EMPTY;
         order = new Order();
     }
 
@@ -24,5 +32,17 @@ public class Table {
     }
     public List<OrderItem> getOrderItemList(){
         return order.getOrderItemList();
+    }
+    public State getState() {
+        if (getBill() >0){
+            state = State.HAVE_ORDER;
+        }else if (getBill() == 0 ) {
+            state = State.EMPTY;
+        }
+        return this.state;
+    }
+    public void clearTable () {
+        state = State.EMPTY;
+        order = new Order();
     }
 }

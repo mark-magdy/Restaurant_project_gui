@@ -19,6 +19,27 @@
 /*#buttonTable:hover{*/
 /*    -fx-background-color: #5a73a7;*/
 /*}*/
+#buttonOrderedTable{
+    -fx-background-color: #af4c4c; /* Green */
+    -fx-font-size: 16;
+    -fx-text-align: center;
+    -fx-min-width: 100px; /* Added "px" unit */
+    -fx-min-height: 100px; /* Added "px" unit */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px; /* Increased border radius for more rounded corners */
+    -fx-border-color: #388E3C; /* Border color */
+    -fx-border-width: 2px; /* Border width */
+}
+#buttonOrderedTable:hover {
+    -fx-background-color: #9e3535; /* Darker green on hover */
+}
+
+#buttonOrderedTable:pressed {
+    -fx-background-color: #7d2828; /* Even darker green when pressed */
+}
 #buttonTable {
     -fx-background-color: #4CAF50; /* Green */
     -fx-font-size: 16;

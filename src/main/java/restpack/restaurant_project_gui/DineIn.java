@@ -10,6 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import restLogic.Restaurant;
+import restLogic.Table;
 
 public class DineIn {
     Button back , table;
@@ -29,10 +30,18 @@ public class DineIn {
         } );
         for (int i = 0 ; i <= 2 ; i++) {
             for (int j = 1 ; j<=3 ;j++){
-                buttons[i*3+j-1] = new Button("Table"+(i*3+j));
-                buttons[i*3+j-1].setId("buttonTable");
-                grid.add(buttons[i*3+j-1], j+1, i+1);
                 final int tableID = i*3+j-1 ;
+                buttons[tableID] = new Button("Table"+(tableID));
+                if (asuResto.getTables().get(tableID).getState()== Table.State.HAVE_ORDER) {
+                    buttons[tableID].setId("buttonOrderedTable");
+
+                }else if (asuResto.getTables().get(tableID).getState() == Table.State.EMPTY){
+                    buttons[tableID].setId("buttonTable");
+                }else {
+                    buttons[tableID].setId("buttonTable");
+                }
+                grid.add(buttons[tableID], j+1, i+1);
+
                 buttons[i*3+j-1].setOnAction(e->{
                     window.setScene(tableGui.createScene(window, asuResto,tableID));
                 });

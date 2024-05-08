@@ -23,7 +23,7 @@ import java.util.List;
 public class TableGui {
     Scene scene, dineInScene;
     Button back, orderBut, receipt;
-    Label totalAmount ;
+//    Label totalAmount ;
     Table table;
     HBox layout = new HBox();
     VBox col_l , col_r ;
@@ -55,6 +55,12 @@ public class TableGui {
         receipt = new Button("receipt");
         orderBut.setOnAction(e -> {
             System.out.println("order are pressed = " + table.getBill());
+            ConfirmBox checkOrdering = new ConfirmBox();
+            Boolean chck = checkOrdering.display("Reciept Request" , "Are You Sure want to get Receipt and t7asb");
+            if (chck){
+                table.clearTable();
+                update();
+            }
         });
         receipt.setOnAction(e -> {
             System.out.println("receipt are pressed ");
@@ -66,7 +72,7 @@ public class TableGui {
         col_l.getChildren().addAll(back, menuGrid);
         col_r.getChildren().addAll(orderedGrid, orderBut);
         layout.getChildren().addAll(col_l, col_r);
-        layout.setSpacing(30);
+        layout.setSpacing(100);
 //        layout.setAlignment(Pos.center);
         scene = new Scene(layout);
         return scene;
@@ -82,7 +88,7 @@ public class TableGui {
         grid.setConstraints(titleSection, 0, 0);
         grid.getChildren().addAll(titleSection);
         for (int j = 0; j < items.size(); j++) {
-            Label labelName = new Label("   " + items.get(j).getName());
+            Label labelName = new Label("     - " + items.get(j).getName());
             Button plus = new Button("+"),
                     minus = new Button("-");
             int finalJ = j;
@@ -118,7 +124,7 @@ public class TableGui {
         grid.setConstraints(titleSection, 0, 0);
         grid.getChildren().addAll(titleSection);
         for (int j = 0; j < items.size(); j++) {
-            Label labelName = new Label("   " + items.get(j).getName());
+            Label labelName = new Label("     - " + items.get(j).getName());
             Label labelQuantity = new Label(" x" + items.get(j).getQuantity());
 
             Label labelPrice = new Label(Double.toString(items.get(j).getPrice()));
@@ -127,6 +133,12 @@ public class TableGui {
             grid.setConstraints(labelPrice, 12, j + 1);
             grid.getChildren().addAll(labelName, labelQuantity, labelPrice);
         }
+        Label totalAmountLabel = new Label("Total Amount : ");
+
+        Label totalPriceLabel = new Label(Double.toString(table.getBill()));
+        grid.setConstraints(totalAmountLabel, 0, items.size() + 1);
+        grid.setConstraints(totalPriceLabel, 12, items.size() + 1);
+        grid.getChildren().addAll(totalAmountLabel, totalPriceLabel);
         return grid;
     }
 
