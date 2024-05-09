@@ -3,8 +3,8 @@ package MenuPack;
 import java.util.ArrayList;
 
 public class Menu {
-    ArrayList<MenuSection>sections=new ArrayList<MenuSection>();
-    ArrayList<Meals>meals=new ArrayList<Meals>();
+    ArrayList<MenuSection> sections=new ArrayList<MenuSection>();
+    ArrayList<Meals>  meals=new ArrayList<Meals>();
    Menu()
    {
 

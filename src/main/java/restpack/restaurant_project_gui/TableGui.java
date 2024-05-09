@@ -42,14 +42,14 @@ public class TableGui {
             window.setScene(dineIn.createScene(window, asuResto));
         });
         /////////////// for test only ///////////////////////////////////
-        Label titleSection = new Label("Drinks     ");
-        MenuItem item = new MenuItem("coka       ", 12.3, 1);
-        MenuItem item1 = new MenuItem("stella     ", 40, 1);
-        MenuItem item2 = new MenuItem("cockaine   ", 100, 1);
-        List<MenuItem> arr = new ArrayList<>();
-        arr.add(item);
-        arr.add(item1);
-        arr.add(item2);
+//        Label titleSection = new Label("Drinks     ");
+//        MenuItem item = new MenuItem("coka       ", 12.3, 1);
+//        MenuItem item1 = new MenuItem("stella     ", 40, 1);
+//        MenuItem item2 = new MenuItem("cockaine   ", 100, 1);
+//        List<MenuItem> arr = new ArrayList<>();
+//        arr.add(item);
+//        arr.add(item1);
+//        arr.add(item2);
         //////////////////////////////////////////////////////////////////
         orderBut = new Button("order");
         receipt = new Button("receipt");
@@ -66,7 +66,7 @@ public class TableGui {
             System.out.println("receipt are pressed ");
         });
 
-        menuGrid = menuItemsViewer(arr, table);
+//        menuGrid = menuItemsViewer(arr, table);
         orderedGrid = orderedItemsViewer(table.getOrderItemList(), table);
 
         col_l.getChildren().addAll(back, menuGrid);

@@ -1,3 +1,5 @@
+package restpack.restaurant_project_gui;
+
 import java.nio.file.Paths;
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class LoginGUI {
+public class Login {
     
     boolean userExists = false;
     boolean passwordCorrect = false;
@@ -83,3 +85,4 @@ public class LoginGUI {
             return false;
         }
     }
+}

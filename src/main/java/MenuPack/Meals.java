@@ -3,7 +3,6 @@ package MenuPack;
 import java.util.ArrayList;
 
 public class Meals extends MenuSection{
-
     String description;
     ArrayList<Integer>quatities=new ArrayList<Integer>();
     public void addFood(Food f,int quantity)
@@ -17,9 +16,7 @@ public class Meals extends MenuSection{
        if(removeItem(f))
        {
            quatities.remove(i);
-
        }
-
     }
     public void addDrinks(Drinks f,int quantity)
     {
@@ -47,9 +44,7 @@ public class Meals extends MenuSection{
         if(removeItem(f))
         {
             quatities.remove(i);
-
         }
-
     }
     public void setDescription()
     {

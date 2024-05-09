@@ -1,0 +1,40 @@
+.root {
+    -fx-padding: 20;
+    -fx-background-color: #cbcbcb;
+}
+.button {
+    -fx-background-color: #575757;
+    -fx-font-size: 16;
+    -fx-display: inline-block;
+    -fx-text-align: center;
+    -fx-spacing: 30 ;
+    -fx-min-height: 120;
+    -fx-min-width: 140;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.button_back{
+    -fx-background-color: #Dc9656;
+    -fx-font-size: 16;
+    -fx-display: inline-block;
+    -fx-text-align: center;
+    -fx-spacing: 30 ;
+    -fx-min-height: 50;
+    -fx-min-width: 70;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.button_add_remove{
+    -fx-background-color: #Dc9656;
+    -fx-font-size: 16;
+    -fx-display: inline-block;
+    -fx-text-align: center;
+    -fx-spacing: 30 ;
+    -fx-min-height: 30;
+    -fx-min-width: 120;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}

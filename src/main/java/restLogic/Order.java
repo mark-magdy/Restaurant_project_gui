@@ -30,7 +30,6 @@ public class Order  {
         }
         orderItemList.add(new OrderItem(menuItem,1));
     }
-    // TODO: removeItem function
     public void removeItem (MenuItem menuItem){
         for (OrderItem i : orderItemList){
             if ( i.getMenuItem().equals(menuItem)){
