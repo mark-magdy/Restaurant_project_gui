@@ -1,7 +1,9 @@
 package restpack.restaurant_project_gui;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -12,12 +14,13 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class Login {
-    
-    boolean userExists = false;
-    boolean passwordCorrect = false;
-    public boolean display() throws Exception {
-        
-        Stage LoginStage = new Stage () ;
+
+
+
+    public boolean display() {
+        AtomicBoolean userExists = new AtomicBoolean(false);
+        AtomicBoolean passwordCorrect = new AtomicBoolean(false);
+        Stage LoginStage = new Stage();
         // Create UI elements
         Label nameLabel = new Label("Name:");
         TextField nameField = new TextField();
@@ -37,51 +40,54 @@ public class Login {
         gridPane.add(loginButton, 1, 2);
         // action for clicking login button
         loginButton.setOnAction(event -> {
-            
+
             String nameInput = nameField.getText();
             String passwordInput = passwordField.getText();
 
             try {
-                Scanner scanner = new Scanner(Paths.get("C:\\Users\\hp\\Desktop\\Java_College\\trial_fx\\trial_fx\\src\\login.txt"));
-            while (scanner.hasNextLine()) {
-                String row = scanner.nextLine();
-                String[] arrOfStr = row.split(" ", 2);
-                    if(arrOfStr[0].equals(nameInput)){
-                        userExists = true;
-                        if(arrOfStr[1].equals(passwordInput)){
-                            passwordCorrect = true;
+                String resourceUrl = getClass().getResource("login.txt").getPath();
+                System.out.println("path ="+resourceUrl);
+
+                Scanner scanner = new Scanner(getClass().getResourceAsStream("login.txt"));
+                while (scanner.hasNextLine()) {
+                    String row = scanner.nextLine();
+                    System.out.println("row ="+row);
+
+                    String[] arrOfStr = row.split(" ", 2);
+                    if (arrOfStr[0].equals(nameInput)) {
+                        userExists.set(true);
+                        if (arrOfStr[1].equals(passwordInput)) {
+                            passwordCorrect.set(true);
                             break;
-                        }
-                        else if(arrOfStr[1].equals(passwordInput)==false) {
+                        } else if (arrOfStr[1].equals(passwordInput) == false) {
                             break;
                         }
                     }
                 }
-                if (!userExists) {
-                    System.out.println("User name doesn't exist");
-                    Label nouserLabel = new Label("Wrong Username");
-                    gridPane.add(nouserLabel, 0, 3);
-                } else if (!passwordCorrect) {
-                    System.out.println("Wrong Password");
-                    Label wrongPasswordLabel = new Label("Wrong Password");
-                    gridPane.add(wrongPasswordLabel, 0, 3);
-                }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
                 //e.printStackTrace();
             }
+            if (!userExists.get()) {
+                System.out.println("User name doesn't exist");
+                Label nouserLabel = new Label("Wrong Username");
+                gridPane.add(nouserLabel, 0, 3);
+            } else if (!passwordCorrect.get()) {
+                System.out.println("Wrong Password");
+                Label wrongPasswordLabel = new Label("Wrong Password");
+                gridPane.add(wrongPasswordLabel, 0, 3);
+            }
+            LoginStage.close();
         });
-        
+
         // Set up the scene
         Scene scene = new Scene(gridPane, 300, 150);
         LoginStage.setScene(scene);
         LoginStage.setTitle("Login");
-        LoginStage.show();
-        if(userExists && passwordCorrect){
+        LoginStage.showAndWait();
+        if (userExists.get() && passwordCorrect.get()) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }

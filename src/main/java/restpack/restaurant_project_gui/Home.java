@@ -12,13 +12,15 @@ import restLogic.Restaurant;
 
 public class Home {
 
-    Button takeAwayBut = new Button("TakeAway") ,
-            dineIn = new Button("DineIn") ,
-            settings  = new Button("Settings");
+    Button takeAwayBut = new Button("TakeAway"),
+            dineIn = new Button("DineIn"),
+            settings = new Button("Settings");
 
-    HBox layout = new HBox() ;
-    Alert alertMsg = new Alert ();
-    public  Scene createScene(Stage window , Restaurant asuResto){
+    HBox layout = new HBox();
+    Alert alertMsg = new Alert();
+    Login login = new Login();
+
+    public Scene createScene(Stage window, Restaurant asuResto) {
         Scene scene;
         TakeAway takeAwayObj = new TakeAway();
         DineIn dineInObj = new DineIn();
@@ -26,21 +28,27 @@ public class Home {
 
         //Scene takeAwayScene = takeAwayObj.createScene(window);
         takeAwayBut.setOnAction(e -> {
-            window.setScene(takeAwayObj.createScene(window, asuResto));
+            if (login.display()) {
+                window.setScene(takeAwayObj.createScene(window, asuResto));
+            }
         });
         dineIn.setOnAction(e -> {
-            Scene tmp = dineInObj.createScene(window,asuResto);
-            window.setScene(tmp);
+            if (login.display()) {
+                Scene tmp = dineInObj.createScene(window, asuResto);
+                window.setScene(tmp);
+            }
         });
 //        manager.setOnAction(e -> alertMsg.display ("Under Construction" , "Thank you for using our service! \n           Under construction") );
         settings.setOnAction(e -> {
-            Scene tmp = settingsGuiObj.createScene(window,asuResto);
-            window.setScene(tmp);
+            if (login.display()) {
+                Scene tmp = settingsGuiObj.createScene(window, asuResto);
+                window.setScene(tmp);
+            }
         });
         layout.setId("hbox");
         layout.setAlignment(Pos.CENTER);
         layout.getChildren().removeAll();
-        layout.getChildren().addAll(dineIn,takeAwayBut, settings);
+        layout.getChildren().addAll(dineIn, takeAwayBut, settings);
         scene = new Scene(layout);
         scene.getStylesheets().add(getClass().getResource("Home.css").toExternalForm());
         return scene;

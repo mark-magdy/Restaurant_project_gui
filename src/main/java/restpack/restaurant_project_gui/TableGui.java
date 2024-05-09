@@ -1,5 +1,6 @@
 package restpack.restaurant_project_gui;
 
+import MenuPack.Food;
 import MenuPack.Menu;
 import MenuPack.MenuItem;
 import MenuPack.MenuSection;
@@ -41,16 +42,16 @@ public class TableGui {
         back.setOnAction(e -> {
             window.setScene(dineIn.createScene(window, asuResto));
         });
-        /////////////// for test only ///////////////////////////////////
-//        Label titleSection = new Label("Drinks     ");
-//        MenuItem item = new MenuItem("coka       ", 12.3, 1);
-//        MenuItem item1 = new MenuItem("stella     ", 40, 1);
-//        MenuItem item2 = new MenuItem("cockaine   ", 100, 1);
-//        List<MenuItem> arr = new ArrayList<>();
-//        arr.add(item);
-//        arr.add(item1);
-//        arr.add(item2);
-        //////////////////////////////////////////////////////////////////
+        ///////////// for test only ///////////////////////////////////
+        Label titleSection = new Label("Drinks     ");
+        MenuItem item = new Food("coka       ", 12.3, 1);
+        MenuItem item1 = new Food("stella     ", 40, 1);
+        MenuItem item2 = new Food("cockaine   ", 100, 1);
+        List<MenuItem> arr = new ArrayList<>();
+        arr.add(item);
+        arr.add(item1);
+        arr.add(item2);
+        ////////////////////////////////////////////////////////////////
         orderBut = new Button("order");
         receipt = new Button("receipt");
         orderBut.setOnAction(e -> {
@@ -58,6 +59,8 @@ public class TableGui {
             ConfirmBox checkOrdering = new ConfirmBox();
             Boolean chck = checkOrdering.display("Reciept Request" , "Are You Sure want to get Receipt and t7asb");
             if (chck){
+                //TODO: decrease stock Items
+                asuResto.setAvailableCash(asuResto.getAvailableCash()+table.getBill());
                 table.clearTable();
                 update();
             }
@@ -66,7 +69,7 @@ public class TableGui {
             System.out.println("receipt are pressed ");
         });
 
-//        menuGrid = menuItemsViewer(arr, table);
+        menuGrid = menuItemsViewer(arr, table);
         orderedGrid = orderedItemsViewer(table.getOrderItemList(), table);
 
         col_l.getChildren().addAll(back, menuGrid);
