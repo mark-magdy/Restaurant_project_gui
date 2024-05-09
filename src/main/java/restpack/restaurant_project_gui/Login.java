@@ -77,7 +77,9 @@ public class Login {
                 Label wrongPasswordLabel = new Label("Wrong Password");
                 gridPane.add(wrongPasswordLabel, 0, 3);
             }
-            LoginStage.close();
+            if ((userExists.get() && passwordCorrect.get())){
+                LoginStage.close();
+            }
         });
 
         // Set up the scene

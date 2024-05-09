@@ -21,7 +21,7 @@ public class ShowTotalInput {
             window.setScene(settings);
         });
 
-        Label label=new Label("The total input is ");
+        Label label=new Label("The total input is " + asuResto.getAvailableCash());
 
         HBox h=new HBox();
         h.getChildren().add(back);
