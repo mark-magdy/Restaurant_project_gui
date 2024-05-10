@@ -13,12 +13,13 @@ import restLogic.Restaurant;
 import restLogic.Table;
 
 public class DineIn {
-    Button back , table;
+    Button back ;
+    Label label = new Label("Dine-In");
     Scene homeScene , scene;
     Home home = new Home();
     GridPane grid = new GridPane() ;
     Button [] buttons = new Button[9] ;
-    BorderPane borderPane = new BorderPane();
+    VBox borderPane = new VBox();
     TableGui tableGui = new TableGui();
 
     public  Scene createScene (Stage window , Restaurant asuResto){
@@ -40,7 +41,7 @@ public class DineIn {
                 }else {
                     buttons[tableID].setId("buttonTable");
                 }
-                grid.add(buttons[tableID], j+1, i+1);
+                grid.add(buttons[tableID], j-1, i);
 
                 buttons[i*3+j-1].setOnAction(e->{
                     window.setScene(tableGui.createScene(window, asuResto,tableID));
@@ -50,9 +51,8 @@ public class DineIn {
         }
 
         grid.setVgap(30);grid.setHgap(75);
-        borderPane.setTop(back);
-        borderPane.setLeft(grid);
-        BorderPane.setAlignment(back,Pos.TOP_LEFT);
+        grid.setAlignment(Pos.CENTER);
+        borderPane.getChildren().addAll(back,grid);;
 //        grid.setAlignment(Pos.CENTER);
         scene =new Scene(borderPane) ;
         back.setId("backBtn");
