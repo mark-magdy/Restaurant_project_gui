@@ -41,7 +41,7 @@ public class Signup {
         grid2.add(JobField,2,3);
 
         grid2.add(Back,1,4);
-        grid2.add(Signup,4,4);
+        grid2.add(SignupButton,4,4);
         grid2.setHgap(50);
         grid2.setVgap(50);
         grid2.setPadding(new Insets(50));
