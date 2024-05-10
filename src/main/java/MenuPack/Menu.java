@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class Menu {
    private ArrayList<MenuSection>sections=new ArrayList<MenuSection>();
    private ArrayList<Meals>meals=new ArrayList<Meals>();
-   Menu()
-   {
+   public Menu() {
        sections.add(new MenuSection("Appetizers")) ;
        sections.add(new MenuSection("Sandwiches")) ;
        sections.add(new MenuSection("Pizza")) ;

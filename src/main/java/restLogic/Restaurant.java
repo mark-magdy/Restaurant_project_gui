@@ -22,6 +22,7 @@ public class Restaurant {
         this.address = address;
         for (int i = 0; i < noTables; i++) {tablesList.add(new Table());}
         availableCash =0.0;
+        mainMenu = new Menu();
     }
 
     public List<Table> getTables() {

@@ -13,7 +13,6 @@ import restLogic.Restaurant;
 import java.io.IOException;
 
 public class Restaurant_app_gui extends Application {
-
     Stage window;
     Home home =new Home();
     public static void main(String[] args) {
