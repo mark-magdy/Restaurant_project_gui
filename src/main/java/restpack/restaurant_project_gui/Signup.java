@@ -9,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -22,22 +23,22 @@ public class Signup {
         Label Name = new Label("Name:");
         TextField nameField = new TextField();
         Label Password = new Label("Password:");
-        PasswordField passwordfield = new PasswordField();
+        PasswordField passwordField = new PasswordField();
         Label CheckPassword = new Label("Confirm Password:");
-        PasswordField CPasswordfield = new PasswordField();
+        PasswordField CPasswordField = new PasswordField();
         Label Job = new Label("Job:");
         TextField JobField = new TextField();
 
         Button Back = new Button("Back");
 
         grid2.add(Name,1,0);
-        grid2.add(namefield,2,0);
+        grid2.add(nameField,2,0);
         grid2.add(Password,1,1);
-        grid2.add(passwordfield,2,1);
+        grid2.add(passwordField,2,1);
         grid2.add(CheckPassword,1,2);
-        grid2.add(CPasswordfield,2,2);
+        grid2.add(CPasswordField,2,2);
         grid2.add(Job,1,3);
-        grid2.add(Jobfield,2,3);
+        grid2.add(JobField,2,3);
 
         grid2.add(Back,1,4);
         grid2.add(Signup,4,4);
