@@ -87,7 +87,7 @@ public class Login {
         LoginStage.setScene(scene);
         LoginStage.setTitle("Login");
         LoginStage.showAndWait();
-        if (userExists.get() && passwordCorrect.get()) {
+        if(userExists.get() && passwordCorrect.get()) {
             return true;
         } else {
             return false;
