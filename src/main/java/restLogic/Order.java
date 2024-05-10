@@ -49,9 +49,9 @@ public class Order  {
     public double getBill (){
         double total =0;
         for(OrderItem i : orderItemList ){
-            total +=  i.getPrice() * i.getQuantity();
+            total +=  i.getPrice() ;
         }
-        return total ;
+        return (Math.round(total * 1000.0) / 1000.0 )  ;
     }
     public void clearOrder () {
         orderItemList.clear();

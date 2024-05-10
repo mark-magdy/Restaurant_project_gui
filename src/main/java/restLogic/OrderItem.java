@@ -19,7 +19,7 @@ public class OrderItem {
         return quantity;
     }
     public double getPrice() {
-        return menuItem.getPrice()*quantity;
+        return (Math.round((menuItem.getPrice()*quantity) * 1000.0) / 1000.0 );
     }
     public void incQuantity (){
         quantity++;

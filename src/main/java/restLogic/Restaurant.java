@@ -13,14 +13,14 @@ public class Restaurant {
     Double availableCash  ;
     private List<Table> tablesList = new ArrayList<>();
     Order takeaway = new Order();
+    int stateOfLogin = 0; // 0 -> not valid , 1 -> worker , 2 -> manager
+
 
 
     public Restaurant(String name, String address , int noTables) {
         this.name = name;
         this.address = address;
-        for (int i = 0; i < noTables; i++) {
-            tablesList.add(new Table());
-        }
+        for (int i = 0; i < noTables; i++) {tablesList.add(new Table());}
         availableCash =0.0;
     }
 
@@ -35,4 +35,7 @@ public class Restaurant {
         this.availableCash = availableCash;
     }
     public Order getTakeaway() {return takeaway;}
+
+    public int getStateOfLogin() {return stateOfLogin;}
+    public void setStateOfLogin(int stateOfLogin) {this.stateOfLogin = stateOfLogin;}
 }

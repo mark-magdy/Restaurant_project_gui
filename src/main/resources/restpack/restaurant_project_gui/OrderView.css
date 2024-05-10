@@ -29,30 +29,66 @@
 /*    -fx-text-fill: white;*/
 /*    -fx-padding: 10px 20px;*/
 /*}*/
-
+.root {
+    -fx-padding: 20;
+    -fx-background-color: #e0e0e0;
+}
 .button {
     -fx-border-radius: 0;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-padding: 10px 20px;
+    /*-fx-padding: 4px 8px;*/
+    -fx-text-fill: white;
 }
 
 /* Style for the button to add items */
 .button-add {
-    -fx-background-color: #4CAF50; /* Green */
+    -fx-background-color: #85e388; /* Green */
+    -fx-max-height: 22px;
+    -fx-max-width: 22px ;
+    -fx-min-width: 21px ;
+    -fx-min-height: 21px;
+    -fx-font-size: 11px;
+
+    /*-fx-text-fill: white;*/
+
 }
 
 /* Style for the button to remove items */
 .button-remove {
-    -fx-background-color: #f44336; /* Red */
+    -fx-background-color: #fd6357; /* Red */
+    -fx-max-height: 22px;
+    -fx-max-width: 22px ;
+    -fx-min-width: 22px ;
+    -fx-min-height: 22px;
+    -fx-font-size: 11px;
 }
 
 /* Style for the order/finish button */
 .button-order {
     -fx-background-color: #2196F3; /* Blue */
 }
+.button-receipt {
+    -fx-background-color: #21f3cc; /* Blue */
+}
 
 /* Darker color when button is pressed */
 .button:pressed {
-    -fx-background-color: darken(rgb(0, 0, 0), 20%);
+    -fx-background-color: derive(-fx-background, 20%);
+}
+.label-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Dark gray text color */
+    -fx-padding: 5px 0; /* Adjust padding as needed */
+}
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333; /* Dark gray text color */
+    -fx-padding: 5px 0; /* Adjust padding as needed */
+}
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555; /* Dark gray text color */
+    -fx-padding: 2px 5px; /* Adjust padding as needed */
 }

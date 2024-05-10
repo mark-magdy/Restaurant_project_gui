@@ -8,25 +8,25 @@ import javafx.scene.control.Label;
 import javafx.scene.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.*;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import restLogic.Order;
 import restLogic.OrderItem;
 import restLogic.Restaurant;
-import restLogic.Table;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TakeAway {
     Scene scene, dineInScene;
-    Button back, orderBut, receipt;
+    Button back, orderBut, VISA;
     //    Label totalAmount ;
     Order takeAwayOrder;
     HBox layout = new HBox();
     VBox col_l , col_r ;
     GridPane orderedGrid, menuGrid;
+    HBox btns = new HBox();
+    Alert alert =new Alert();
 
     public Scene createScene(Stage window, Restaurant asuResto) {
         takeAwayOrder = asuResto.getTakeaway();
@@ -34,11 +34,11 @@ public class TakeAway {
         System.out.println("table refrence is " + asuResto);
         Menu menu = asuResto.getMainMenu();   // TODO: to be integrated with menuPack
         back = new Button("Back");
-        DineIn dineIn = new DineIn();
+        Home home = new Home();
 
 //        dineInScene = ;
         back.setOnAction(e -> {
-            window.setScene(dineIn.createScene(window, asuResto));
+            window.setScene(home.createScene(window, asuResto));
         });
         ///////////// for test only ///////////////////////////////////
         Label titleSection = new Label("Drinks     ");
@@ -50,8 +50,10 @@ public class TakeAway {
         arr.add(item1);
         arr.add(item2);
         ////////////////////////////////////////////////////////////////
-        orderBut = new Button("order");
-        receipt = new Button("receipt");
+        orderBut = new Button("Cash");
+        VISA = new Button("VISA");
+        orderBut.getStyleClass().add("button-order");
+        VISA.getStyleClass().add("button-receipt");
         orderBut.setOnAction(e -> {
             System.out.println("order are pressed = " + takeAwayOrder.getBill());
             ConfirmBox checkOrdering = new ConfirmBox();
@@ -63,19 +65,28 @@ public class TakeAway {
                 update();
             }
         });
-        receipt.setOnAction(e -> {
+        VISA.setOnAction(e -> {
+            alert.display("Uner Condtruction" , "It's not working yet");
             System.out.println("receipt are pressed ");
+
         });
 
         menuGrid = menuItemsViewer(arr, takeAwayOrder);
         orderedGrid = orderedItemsViewer(takeAwayOrder.getOrderItemList(), takeAwayOrder);
 
         col_l.getChildren().addAll(back, menuGrid);
-        col_r.getChildren().addAll(orderedGrid, orderBut);
+
+        btns.getChildren().addAll(orderBut, VISA);
+        btns.setSpacing(20);
+        btns.setAlignment(Pos.CENTER);
+        col_r.getChildren().addAll(orderedGrid, btns);
         layout.getChildren().addAll(col_l, col_r);
         layout.setSpacing(100);
-//        layout.setAlignment(Pos.center);
+        layout.setAlignment(Pos.CENTER);
         scene = new Scene(layout);
+
+        scene.getStylesheets().add(getClass().getResource("OrderView.css").toExternalForm());
+
         return scene;
     }
 
@@ -86,12 +97,16 @@ public class TakeAway {
         grid.setPadding(new Insets(15, 15, 15, 15));
         //TODO: Print the title of each section
         Label titleSection = new Label("Drinks"); // for test only it will be automated
+        titleSection.getStyleClass().add("label-title");
+
         grid.setConstraints(titleSection, 0, 0);
         grid.getChildren().addAll(titleSection);
         for (int j = 0; j < items.size(); j++) {
             Label labelName = new Label("     - " + items.get(j).getName());
             Button plus = new Button("+"),
                     minus = new Button("-");
+            plus.getStyleClass().add("button-add");
+            minus.getStyleClass().add("button-remove");
             int finalJ = j;
             plus.setOnAction(e -> {
                 // table.addItemInOrder();
@@ -140,6 +155,10 @@ public class TakeAway {
         grid.setConstraints(totalAmountLabel, 0, items.size() + 1);
         grid.setConstraints(totalPriceLabel, 12, items.size() + 1);
         grid.getChildren().addAll(totalAmountLabel, totalPriceLabel);
+
+        titleSection.getStyleClass().add("label-title");
+        totalAmountLabel.getStyleClass().add("label-title");
+
         return grid;
     }
 
@@ -147,7 +166,7 @@ public class TakeAway {
         orderedGrid = orderedItemsViewer(takeAwayOrder.getOrderItemList(), takeAwayOrder);
         layout.getChildren().remove(col_r);
         col_r = new VBox();
-        col_r.getChildren().addAll(orderedGrid,orderBut);
+        col_r.getChildren().addAll(orderedGrid, btns);
         layout.getChildren().add(col_r );
     }
 }

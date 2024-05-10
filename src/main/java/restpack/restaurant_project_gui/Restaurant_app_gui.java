@@ -40,6 +40,5 @@ public class Restaurant_app_gui extends Application {
         ConfirmBox confirmBox = new ConfirmBox();
         Boolean res = confirmBox.display("Exit Request","Are you sure want to quit ?!");
         if (res)window.close() ;
-
     }
 }

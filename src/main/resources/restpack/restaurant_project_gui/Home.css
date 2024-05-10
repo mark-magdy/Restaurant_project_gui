@@ -1,9 +1,9 @@
 .root {
     -fx-padding: 20;
-    -fx-background-color: #cbcbcb;
+    -fx-background-color: #e0e0e0;
 }
 
-.button {
+.button-big {
     -fx-background-color: #575757;
     -fx-font-size: 16;
     -fx-display: inline-block;
@@ -14,6 +14,26 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-cursor: hand;
+}
+#button-signup {
+    -fx-background-color: #4CAF50; /* Green */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px; /* Padding */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-background-radius: 5px; /* Rounded corners for background */
+    -fx-border-color: transparent; /* Transparent border color */
+}
+
+/* Hover effect */
+#button-signup:hover {
+    -fx-background-color: #45a049; /* Darker shade of green */
+}
+
+/* Pressed effect */
+#button-signup:pressed {
+    -fx-background-color: #357d36; /* Even darker shade of green */
 }
 #hbox {
     -fx-spacing: 45; /* Spacing between YES and NO buttons */

@@ -29,6 +29,7 @@ public class TableGui {
     HBox layout = new HBox();
     VBox col_l , col_r ;
     GridPane orderedGrid, menuGrid;
+    HBox btns = new HBox();
 
     public Scene createScene(Stage window, Restaurant asuResto, int tableId) {
         table = asuResto.getTables().get(tableId);
@@ -54,6 +55,9 @@ public class TableGui {
         ////////////////////////////////////////////////////////////////
         orderBut = new Button("order");
         receipt = new Button("receipt");
+        orderBut.getStyleClass().add("button-order");
+        receipt.getStyleClass().add("button-receipt");
+
         orderBut.setOnAction(e -> {
             System.out.println("order are pressed = " + table.getBill());
             ConfirmBox checkOrdering = new ConfirmBox();
@@ -73,11 +77,16 @@ public class TableGui {
         orderedGrid = orderedItemsViewer(table.getOrderItemList(), table);
 
         col_l.getChildren().addAll(back, menuGrid);
-        col_r.getChildren().addAll(orderedGrid, orderBut);
+
+        btns.getChildren().addAll(orderBut,receipt);
+        btns.setSpacing(20);
+        btns.setAlignment(Pos.CENTER);
+        col_r.getChildren().addAll(orderedGrid, btns);
         layout.getChildren().addAll(col_l, col_r);
         layout.setSpacing(100);
-//        layout.setAlignment(Pos.center);
+        layout.setAlignment(Pos.CENTER);
         scene = new Scene(layout);
+
         scene.getStylesheets().add(getClass().getResource("OrderView.css").toExternalForm());
 
         return scene;
@@ -90,6 +99,8 @@ public class TableGui {
         grid.setPadding(new Insets(15, 15, 15, 15));
         //TODO: Print the title of each section
         Label titleSection = new Label("Drinks"); // for test only it will be automated
+        titleSection.getStyleClass().add("label-title");
+
         grid.setConstraints(titleSection, 0, 0);
         grid.getChildren().addAll(titleSection);
         for (int j = 0; j < items.size(); j++) {
@@ -132,7 +143,7 @@ public class TableGui {
         grid.getChildren().addAll(titleSection);
         for (int j = 0; j < items.size(); j++) {
             Label labelName = new Label("     - " + items.get(j).getName());
-            Label labelQuantity = new Label(" x" + items.get(j).getQuantity());
+            Label labelQuantity = new Label("x" + items.get(j).getQuantity());
 
             Label labelPrice = new Label(Double.toString(items.get(j).getPrice()));
             grid.setConstraints(labelName, 0, j + 1);
@@ -146,6 +157,10 @@ public class TableGui {
         grid.setConstraints(totalAmountLabel, 0, items.size() + 1);
         grid.setConstraints(totalPriceLabel, 12, items.size() + 1);
         grid.getChildren().addAll(totalAmountLabel, totalPriceLabel);
+
+        titleSection.getStyleClass().add("label-title");
+        totalAmountLabel.getStyleClass().add("label-title");
+
         return grid;
     }
 
@@ -153,7 +168,6 @@ public class TableGui {
         orderedGrid = orderedItemsViewer(table.getOrderItemList(), table);
         layout.getChildren().remove(col_r);
         col_r = new VBox();
-        col_r.getChildren().addAll(orderedGrid,orderBut);
-        layout.getChildren().add(col_r );
+        col_r.getChildren().addAll(orderedGrid, btns);        layout.getChildren().add(col_r );
     }
 }
