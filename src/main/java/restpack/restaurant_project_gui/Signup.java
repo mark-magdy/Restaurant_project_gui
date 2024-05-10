@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 public class Signup {
     public void display() {
         Stage SignUpStage = new Stage();
-        Button Signup = new Button("Signup");
+        Button SignupButton = new Button("Signup");
         GridPane grid2 = new GridPane();
 
         grid2.add(Name,1,0);
