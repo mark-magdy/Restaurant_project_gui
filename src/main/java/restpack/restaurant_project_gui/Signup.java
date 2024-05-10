@@ -51,6 +51,9 @@ public class Signup {
         grid2.setVgap(20);
         grid2.setPadding(new Insets(50));
 
+        Label message = new Label();
+        grid2.add(message, 1, 5);
+
         SignupButton.setOnAction(event -> {
 
             String nameInput = nameField.getText();
@@ -62,20 +65,15 @@ public class Signup {
                 if (!nameInput.isEmpty() && !passwordInput.isEmpty()) {
 
                     if (passwordInput.equals(checkPasswordInput)) {
-                       // new Thread(() -> {
                         StringBuilder contentBuilder = new StringBuilder();
                         contentBuilder.append("\n").append(line);
-                        Files.write(Paths.get("C:\\Users\\hp\\IdeaProjects\\Restaurant_project_gui\\src\\main\\resources\\restpack\\restaurant_project_gui\\login.txt"), contentBuilder.toString().getBytes(), StandardOpenOption.APPEND);
-                       // Platform.runLater(SignUpStage::close);
-                        Label doneLabel = new Label("Registered");
-                        grid2.add(doneLabel, 1, 5);
+                        Files.write(Paths.get("src/main/resources/restpack/restaurant_project_gui/login.txt"), contentBuilder.toString().getBytes(), StandardOpenOption.APPEND);
+                        message.setText("Registered");
                     } else {
-                        Label wrongPasswordLabel = new Label("Unmatched Password");
-                        grid2.add(wrongPasswordLabel, 0, 2);
+                        message.setText("Unmatched Passwords");
                     }
                 } else {
-                    Label putDataLabel = new Label("Please, Input data");
-                    grid2.add(putDataLabel, 0, 3);
+                    message.setText("Please, Input data");
                 }
             } catch (IOException e) {
                 System.out.println("An error occurred at Signup.");
