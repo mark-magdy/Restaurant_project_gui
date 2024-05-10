@@ -60,7 +60,7 @@ public class Home {
         });
         loginBtn.setOnAction(e -> {
             if (asuResto.getStateOfLogin() == 0) {
-                asuResto.setStateOfLogin((login.display() ? 2 : 0));
+                asuResto.setStateOfLogin(login.display());
                 if (asuResto.getStateOfLogin()>0)loginBtn.setText("Logout");
             } else {
                 asuResto.setStateOfLogin(0);

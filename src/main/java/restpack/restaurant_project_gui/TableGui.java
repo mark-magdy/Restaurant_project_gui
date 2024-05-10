@@ -21,16 +21,17 @@ import java.util.List;
 public class TableGui {
     Scene scene, dineInScene;
     Button back, orderBut, receipt;
-//    Label totalAmount ;
+    //    Label totalAmount ;
     Table table;
     HBox layout = new HBox();
-    VBox col_l , col_r ;
+    VBox col_l, col_r;
     GridPane orderedGrid, menuGrid;
     HBox btns = new HBox();
 
     public Scene createScene(Stage window, Restaurant asuResto, int tableId) {
         table = asuResto.getTables().get(tableId);
-        col_l = new VBox(); col_r = new VBox();
+        col_l = new VBox();
+        col_r = new VBox();
         System.out.println("table refrence is " + asuResto);
         Menu menu = asuResto.getMainMenu();   // TODO: to be integrated with menuPack
         back = new Button("Back");
@@ -40,16 +41,7 @@ public class TableGui {
         back.setOnAction(e -> {
             window.setScene(dineIn.createScene(window, asuResto));
         });
-        ///////////// for test only ///////////////////////////////////
-        Label titleSection = new Label("Drinks     ");
-        MenuItem item = new Food("coka       ", 12.3, 1);
-        MenuItem item1 = new Food("stella     ", 40, 1);
-        MenuItem item2 = new Food("cockaine   ", 100, 1);
-        List<MenuItem> arr = new ArrayList<>();
-        arr.add(item);
-        arr.add(item1);
-        arr.add(item2);
-        ////////////////////////////////////////////////////////////////
+
         orderBut = new Button("order");
         receipt = new Button("receipt");
         orderBut.getStyleClass().add("button-order");
@@ -58,10 +50,10 @@ public class TableGui {
         orderBut.setOnAction(e -> {
             System.out.println("order are pressed = " + table.getBill());
             ConfirmBox checkOrdering = new ConfirmBox();
-            Boolean chck = checkOrdering.display("Reciept Request" , "Are You Sure want to get Receipt and t7asb");
-            if (chck){
+            Boolean chck = checkOrdering.display("Reciept Request", "Are You Sure want to get Receipt and t7asb");
+            if (chck) {
                 //TODO: decrease stock Items
-                asuResto.setAvailableCash(asuResto.getAvailableCash()+table.getBill());
+                asuResto.setAvailableCash(asuResto.getAvailableCash() + table.getBill());
                 table.clearTable();
                 update();
             }
@@ -69,13 +61,13 @@ public class TableGui {
         receipt.setOnAction(e -> {
             System.out.println("receipt are pressed ");
         });
-
+        List<MenuSection> arr = menu.getSections();
         menuGrid = menuItemsViewer(arr, table);
         orderedGrid = orderedItemsViewer(table.getOrderItemList(), table);
 
         col_l.getChildren().addAll(back, menuGrid);
 
-        btns.getChildren().addAll(orderBut,receipt);
+        btns.getChildren().addAll(orderBut, receipt);
         btns.setSpacing(20);
         btns.setAlignment(Pos.CENTER);
         col_r.getChildren().addAll(orderedGrid, btns);
@@ -89,43 +81,48 @@ public class TableGui {
         return scene;
     }
 
-    GridPane menuItemsViewer(List<MenuItem> items, Table table) {
+    GridPane menuItemsViewer(List<MenuSection> sections, Table table) {
         GridPane grid = new GridPane();
         grid.setHgap(8);
         grid.setVgap(2);
         grid.setPadding(new Insets(15, 15, 15, 15));
         //TODO: Print the title of each section
-        Label titleSection = new Label("Drinks"); // for test only it will be automated
-        titleSection.getStyleClass().add("label-title");
+        //for (MenuSection sec : sections) {
+        int lstRowIndex = 0 ;
+        for (int i = 0 ; i < sections.size();i++){
+            List<MenuItem> items= sections.get(i).getMenuItems();
+            Label titleSection = new Label(sections.get(i).getName()); // for test only it will be automated
+            titleSection.getStyleClass().add("label-title");
 
-        grid.setConstraints(titleSection, 0, 0);
-        grid.getChildren().addAll(titleSection);
-        for (int j = 0; j < items.size(); j++) {
-            Label labelName = new Label("     - " + items.get(j).getName());
-            Button plus = new Button("+"),
-                    minus = new Button("-");
-            plus.getStyleClass().add("button-add");
-            minus.getStyleClass().add("button-remove");
-            int finalJ = j;
-            plus.setOnAction(e -> {
-                // table.addItemInOrder();
-                System.out.println("plus are pressed " + Integer.toString(finalJ));
-                table.addItemInOrder(items.get(finalJ));
-                update();
-            });
-            minus.setOnAction(e -> {
-                // table.removeItemInOrder(); TODO:
-                System.out.println("minus are pressed " + Integer.toString(finalJ));
-                table.removeItemInOrder(items.get(finalJ));
-                update();
-            });
-            Label labelPrice = new Label(Double.toString(items.get(j).getPrice()));
+            grid.setConstraints(titleSection, 0, lstRowIndex++);
+            grid.getChildren().addAll(titleSection);
+            for (int j = 0; j < items.size(); j++ , lstRowIndex++) {
+                Label labelName = new Label("     - " + items.get(j).getName());
+                Button plus = new Button("+"),
+                        minus = new Button("-");
+                plus.getStyleClass().add("button-add");
+                minus.getStyleClass().add("button-remove");
+                int finalJ = j;
+                plus.setOnAction(e -> {
+                    // table.addItemInOrder();
+                    System.out.println("plus are pressed " + Integer.toString(finalJ));
+                    table.addItemInOrder(items.get(finalJ));
+                    update();
+                });
+                minus.setOnAction(e -> {
+                    // table.removeItemInOrder(); TODO:
+                    System.out.println("minus are pressed " + Integer.toString(finalJ));
+                    table.removeItemInOrder(items.get(finalJ));
+                    update();
+                });
+                Label labelPrice = new Label(Double.toString(items.get(j).getPrice()));
 
-            grid.setConstraints(labelName, 0, j + 1);
-            grid.setConstraints(minus, 5, j + 1);
-            grid.setConstraints(plus, 8, j + 1);
-            grid.setConstraints(labelPrice, 12, j + 1);
-            grid.getChildren().addAll(labelName, minus, plus, labelPrice);
+                grid.setConstraints(labelName, 0, lstRowIndex);
+                grid.setConstraints(minus, 5, lstRowIndex);
+                grid.setConstraints(plus, 8, lstRowIndex);
+                grid.setConstraints(labelPrice, 12, lstRowIndex);
+                grid.getChildren().addAll(labelName, minus, plus, labelPrice);
+            }
         }
         return grid;
     }
@@ -165,6 +162,7 @@ public class TableGui {
         orderedGrid = orderedItemsViewer(table.getOrderItemList(), table);
         layout.getChildren().remove(col_r);
         col_r = new VBox();
-        col_r.getChildren().addAll(orderedGrid, btns);        layout.getChildren().add(col_r );
+        col_r.getChildren().addAll(orderedGrid, btns);
+        layout.getChildren().add(col_r);
     }
 }

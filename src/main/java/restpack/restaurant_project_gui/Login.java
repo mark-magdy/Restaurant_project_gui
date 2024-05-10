@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 public class Login {
 
-    public AtomicInteger display() {
+    public int display() {
         AtomicInteger returnValue = new AtomicInteger();
         returnValue.set(0);
         Stage LoginStage = new Stage();
@@ -39,6 +39,7 @@ public class Login {
         gridPane.add(passwordLabel, 0, 1);
         gridPane.add(passwordField, 1, 1);
         gridPane.add(message, 0, 3);
+        gridPane.add(loginButton,1,2);
 
         // action for clicking login button
         loginButton.setOnAction(event -> {
@@ -88,7 +89,7 @@ public class Login {
         LoginStage.setScene(scene);
         LoginStage.setTitle("Login");
         LoginStage.showAndWait();
-        return returnValue;
+        return returnValue.get();
 
     }
 }
