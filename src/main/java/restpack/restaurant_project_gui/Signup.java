@@ -57,7 +57,7 @@ public class Signup {
 
         Label message = new Label();
         grid2.add(message, 1, 5);
-
+        Back.setOnAction(e -> SignUpStage.close());
         SignupButton.setOnAction(event -> {
 
             String nameInput = nameField.getText();
