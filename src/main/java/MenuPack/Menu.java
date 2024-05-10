@@ -6,6 +6,7 @@ public class Menu {
    private ArrayList<MenuSection>sections=new ArrayList<MenuSection>();
    private ArrayList<Meals>meals=new ArrayList<Meals>();
    public Menu() {
+
        sections.add(new MenuSection("Appetizers")) ;
        sections.add(new MenuSection("Sandwiches")) ;
        sections.add(new MenuSection("Pizza")) ;
@@ -31,17 +32,56 @@ public class Menu {
     // TODO: function extend sections
     // TODO: add Items ,  remove Items ,update price
     // TODO: if we run the program it will be empty so we need to initialize it within the code or with seperate files (File Handling is extra)
-   void addItem(String secName,String name , double price,int stockQuantity){
+ public  void addItem(String secName,String name , double price,int stockQuantity){
         for (MenuSection sec:this.sections)
         {
             if(sec.getName()==secName)
             {
-                MenuItem m=new MenuItem(name,price,stockQuantity);
-                sec.addItem(m);
+                switch (secName) {
+                    case ("Appetizers"):
+                    {
+                        Appetizers m=new Appetizers(name,price,stockQuantity);
+                        sec.addItem(m);
+                        break;
+                    }
+                    case("Sandwiches"):
+                    {
+                        Sandwiches m=new Sandwiches(name,price,stockQuantity);
+                        sec.addItem(m);
+                        break;
+                    }
+                    case("Pizza"):
+                    {
+                        Pizza m=new Pizza(name,price,stockQuantity);
+                        sec.addItem(m);
+                        break;
+                    }
+                    case ("Desserts"):
+                   {
+                       Desserts m=new Desserts(name,price,stockQuantity);
+                       sec.addItem(m);
+                       break;
+                   }
+                    case ("Hot drinks"):
+                    {
+                        HotDrinks m=new HotDrinks(name,price,stockQuantity);
+                        sec.addItem(m);
+                        break;
+                    }
+                    case("Cold drinks"):
+
+                    {
+                        ColdDrinks m=new ColdDrinks(name,price,stockQuantity);
+                        sec.addItem(m);
+                        break;
+                    }
+                }
+
+
             }
         }
     }
-    void updatePrice(String secName,String name , double price){
+   public void updatePrice(String secName,String name , double price){
         for (MenuSection sec:this.sections)
         {
             if(sec.getName()==secName)
@@ -56,25 +96,21 @@ public class Menu {
             }
         }
     }
-    void addSection(String name )
-    {
-        MenuSection m=new MenuSection(name);
-        this.sections.add(m);
-    }
-    void addMeal(Meals m)
+
+    public void addMeal(Meals m)
     {
         meals.add(m);
     }
-    void removeMeal(Meals m)
+    public void removeMeal(Meals m)
     {
         meals.remove(m);
     }
-    void addMeal(String name)
+    public void addMeal(String name)
     {
         Meals m=new Meals(name);
         this.meals.add(m);
     }
-    void removeSection(String name)
+   public void removeSection(String name)
     {
         for(MenuSection m:this.sections)
         {
@@ -84,7 +120,7 @@ public class Menu {
             }
         }
     }
-    void removeMeal(String name)
+   public void removeMeal(String name)
     {
         for(Meals m:this.meals)
         {
@@ -94,8 +130,8 @@ public class Menu {
             }
         }
     }
-/*
-    public static void main(String [] args)
+
+   /* public static void main(String [] args)
     {
       Menu m=new Menu();
      Sandwiches hamburger=new Sandwiches("hamburger",50,2);

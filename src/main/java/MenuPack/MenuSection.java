@@ -1,6 +1,7 @@
 package MenuPack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public  class MenuSection {
      private String name ;
@@ -46,6 +47,8 @@ public  class MenuSection {
    public void addItem(MenuItem item)
    {
        items.add(item);
+       Collections.sort(items,MenuItem::compareTo);
+
    }
    public boolean removeItem(MenuItem item)
    {

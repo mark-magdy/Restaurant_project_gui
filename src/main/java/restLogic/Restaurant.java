@@ -2,6 +2,8 @@ package restLogic;
 
 
 import MenuPack.Menu;
+import MenuPack.MenuSection;
+import MenuPack.Sandwiches;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,13 @@ public class Restaurant {
         for (int i = 0; i < noTables; i++) {tablesList.add(new Table());}
         availableCash =0.0;
         mainMenu = new Menu();
+        //Menu m=new Menu();
+        //Sandwiches hamburger=new Sandwiches("hamburger",50,2);
+       mainMenu.addItem("Sandwiches","hamburger",50,2);
+        mainMenu.addItem("Sandwiches","buffalo",100,2);
+        mainMenu.addItem("Sandwiches","bunnbun",70,2);
+       mainMenu.addItem("Pizza","margrita",200,4);
+       mainMenu.addItem("Cold drinks","pepsi",10,2);
     }
 
     public List<Table> getTables() {

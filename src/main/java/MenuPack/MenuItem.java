@@ -2,7 +2,7 @@ package MenuPack;
 
 import java.util.Objects;
 
-public   class MenuItem implements Comparable<MenuItem> {
+public abstract    class MenuItem implements Comparable<MenuItem> {
     private String name;
      private double price;
       public int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
