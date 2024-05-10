@@ -1,7 +1,5 @@
 package restLogic;
 
-import MenuPack.MenuItem;
-
 import java.util.List;
 
 public class Table {

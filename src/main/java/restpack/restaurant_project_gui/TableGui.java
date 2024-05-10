@@ -1,10 +1,5 @@
 package restpack.restaurant_project_gui;
 
-import MenuPack.Food;
-import MenuPack.Menu;
-import MenuPack.MenuItem;
-import MenuPack.MenuSection;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import restLogic.*;

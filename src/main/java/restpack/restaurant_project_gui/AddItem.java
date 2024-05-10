@@ -1,9 +1,5 @@
 package restpack.restaurant_project_gui;
 
-import MenuPack.Menu;
-import MenuPack.MenuItem;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

@@ -3,8 +3,8 @@ package MenuPack;
 import java.util.ArrayList;
 
 public  class MenuSection {
-    String name ;
-    ArrayList<MenuItem> items=new ArrayList<MenuItem>();
+     private String name ;
+   private ArrayList<MenuItem> items=new ArrayList<MenuItem>();
    // MenuItem [] menuItems = new MenuItem[20]; // TODO: use lists instead of Arrays
     //int lengthOfMenuItems = 0 ;
 
@@ -12,6 +12,14 @@ public  class MenuSection {
 
     public MenuSection(String name) {
         this.name = name;
+    }
+
+    public ArrayList<MenuItem> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<MenuItem> items) {
+        this.items = items;
     }
 
     public String getName() {
