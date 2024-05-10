@@ -19,6 +19,17 @@ public class Signup {
         Button SignupButton = new Button("Signup");
         GridPane grid2 = new GridPane();
 
+        Label nameLabel = new Label("Name:");
+        TextField nameField = new TextField();
+        Label passwordLabel = new Label("Password:");
+        PasswordField passwordField = new PasswordField();
+        Label checkPasswordLabel = new Label("Confirm Password:");
+        PasswordField confirmPasswordField = new PasswordField();
+        Label jobLabel = new Label("Job:");
+        TextField jobField = new TextField();
+
+        Button Back = new Button("Back");
+
         grid2.add(Name,1,0);
         grid2.add(namefield,2,0);
         grid2.add(Password,1,1);
@@ -47,7 +58,7 @@ public class Signup {
         if(passwordInput.equals(checkPasswordInput)){
         StringBuilder contentBuilder = new StringBuilder();       
         contentBuilder.append("\n").append(line);
-        Files.write((getClass().getResourceAsStream("login.txt")), contentBuilder.toString().getBytes(), StandardOpenOption.APPEND);
+        Files.write(Paths.get("login.txt"), contentBuilder.toString().getBytes(), StandardOpenOption.APPEND);
         SignUpStage.close();
         }
         else{
