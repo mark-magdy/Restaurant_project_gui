@@ -50,8 +50,8 @@ public class Signup {
 
             String nameInput = nameField.getText();
             String passwordInput = passwordField.getText();
-            String checkPasswordInput = CPasswordfield.getText();
-            String jobInput = Jobfield.getText();
+            String checkPasswordInput = CPasswordField.getText();
+            String jobInput = JobField.getText();
             String line = nameInput +" "+ passwordInput +""+ jobInput;
     try {
         if(!nameInput.isEmpty() && !passwordInput.isEmpty()){
