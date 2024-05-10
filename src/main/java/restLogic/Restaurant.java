@@ -32,6 +32,7 @@ public class Restaurant {
         mainMenu.addItem("Sandwiches","bunnbun",70,2);
        mainMenu.addItem("Pizza","margrita",200,4);
        mainMenu.addItem("Cold drinks","pepsi",10,2);
+       mainMenu.removeItem("bunnbun");
     }
 
     public List<Table> getTables() {

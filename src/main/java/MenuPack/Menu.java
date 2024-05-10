@@ -81,6 +81,16 @@ public class Menu {
             }
         }
     }
+    public void removeItem (String name)
+    {
+        for(MenuSection sec:sections)
+        {
+            for(MenuItem m:sec.getItems())
+            {
+                if(m.getName()==name)sec.removeItem(m);
+            }
+        }
+    }
    public void updatePrice(String secName,String name , double price){
         for (MenuSection sec:this.sections)
         {
