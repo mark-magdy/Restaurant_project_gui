@@ -13,12 +13,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Signup {
     public void display() {
         //System.out.println("works");
         Stage SignUpStage = new Stage();
+        SignUpStage.initModality(Modality.APPLICATION_MODAL);
+
         GridPane grid2 = new GridPane();
 
         SignUpStage.setWidth(600);

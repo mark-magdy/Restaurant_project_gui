@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Login {
@@ -21,6 +22,8 @@ public class Login {
         AtomicBoolean userExists = new AtomicBoolean(false);
         AtomicBoolean passwordCorrect = new AtomicBoolean(false);
         Stage LoginStage = new Stage();
+        LoginStage.initModality(Modality.APPLICATION_MODAL);
+
         // Create UI elements
         Label nameLabel = new Label("Name:");
         TextField nameField = new TextField();
