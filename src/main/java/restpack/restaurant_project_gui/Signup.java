@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,9 +17,12 @@ import javafx.stage.Stage;
 
 public class Signup {
     public void display() {
+        //System.out.println("works");
         Stage SignUpStage = new Stage();
-        Button SignupButton = new Button("Signup");
         GridPane grid2 = new GridPane();
+
+        SignUpStage.setWidth(600);
+        SignUpStage.setHeight(400);
 
         Label Name = new Label("Name:");
         TextField nameField = new TextField();
@@ -30,6 +34,7 @@ public class Signup {
         TextField JobField = new TextField();
 
         Button Back = new Button("Back");
+        Button SignupButton = new Button("Signup");
 
         grid2.add(Name, 1, 0);
         grid2.add(nameField, 2, 0);
@@ -42,8 +47,8 @@ public class Signup {
 
         grid2.add(Back, 1, 4);
         grid2.add(SignupButton, 4, 4);
-        grid2.setHgap(50);
-        grid2.setVgap(50);
+        grid2.setHgap(20);
+        grid2.setVgap(20);
         grid2.setPadding(new Insets(50));
 
         SignupButton.setOnAction(event -> {
@@ -52,28 +57,36 @@ public class Signup {
             String passwordInput = passwordField.getText();
             String checkPasswordInput = CPasswordField.getText();
             String jobInput = JobField.getText();
-            String line = nameInput + " " + passwordInput + "" + jobInput;
+            String line = nameInput + " " + passwordInput + " " + jobInput;
             try {
                 if (!nameInput.isEmpty() && !passwordInput.isEmpty()) {
 
                     if (passwordInput.equals(checkPasswordInput)) {
+                       // new Thread(() -> {
                         StringBuilder contentBuilder = new StringBuilder();
                         contentBuilder.append("\n").append(line);
-                        Files.write(Paths.get("login.txt"), contentBuilder.toString().getBytes(), StandardOpenOption.APPEND);
-                        SignUpStage.close();
+                        Files.write(Paths.get("C:\\Users\\hp\\IdeaProjects\\Restaurant_project_gui\\src\\main\\resources\\restpack\\restaurant_project_gui\\login.txt"), contentBuilder.toString().getBytes(), StandardOpenOption.APPEND);
+                       // Platform.runLater(SignUpStage::close);
+                        Label doneLabel = new Label("Registered");
+                        grid2.add(doneLabel, 1, 5);
                     } else {
                         Label wrongPasswordLabel = new Label("Unmatched Password");
-                        grid2.add(wrongPasswordLabel, 0, 3);
+                        grid2.add(wrongPasswordLabel, 0, 2);
                     }
                 } else {
                     Label putDataLabel = new Label("Please, Input data");
                     grid2.add(putDataLabel, 0, 3);
                 }
             } catch (IOException e) {
-                System.out.println("An error occurred.");
+                System.out.println("An error occurred at Signup.");
                 e.printStackTrace();
             }
+           // }).start();
         });
+
+        Scene sceneSignup = new Scene(grid2, 300, 150);
+        SignUpStage.setScene(sceneSignup);
+        SignUpStage.setTitle("SignUp");
         SignUpStage.show();
     }
 }
