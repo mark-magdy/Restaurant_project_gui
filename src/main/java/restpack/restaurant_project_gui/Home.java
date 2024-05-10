@@ -19,6 +19,7 @@ public class Home {
     HBox layout = new HBox();
     Alert alertMsg = new Alert();
     Login login = new Login();
+    Signup signup = new Signup();
 
     public Scene createScene(Stage window, Restaurant asuResto) {
         Scene scene;
@@ -40,10 +41,12 @@ public class Home {
         });
 //        manager.setOnAction(e -> alertMsg.display ("Under Construction" , "Thank you for using our service! \n           Under construction") );
         settings.setOnAction(e -> {
-            if (login.display()) {
-                Scene tmp = settingsGuiObj.createScene(window, asuResto);
-                window.setScene(tmp);
-            }
+            signup.display();
+
+//            if (login.display()) {
+//                Scene tmp = settingsGuiObj.createScene(window, asuResto);
+//                window.setScene(tmp);
+//            }
         });
         layout.setId("hbox");
         layout.setAlignment(Pos.CENTER);

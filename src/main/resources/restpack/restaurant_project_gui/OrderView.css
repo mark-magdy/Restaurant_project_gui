@@ -1,0 +1,58 @@
+/*.button-add {*/
+/*    -fx-background-color: #4CAF50; !* Green *!*/
+/*    -fx-border-radius: 1px;*/
+/*    -fx-border-color: transparent;*/
+/*    -fx-font-size: 10px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-padding: 3px 3px;*/
+/*}*/
+
+/*!* Style for the button to remove items *!*/
+/*.button-remove {*/
+/*    -fx-background-color: #f44336; !* Red *!*/
+/*    -fx-border-radius: 1px;*/
+/*    -fx-border-color: transparent;*/
+/*    -fx-font-size: 10px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-padding: 3px 3px;*/
+/*}*/
+
+/*!* Style for the order/finish button *!*/
+/*.button-order {*/
+/*    -fx-background-color: #2196F3; !* Blue *!*/
+/*    -fx-border-radius: 5px;*/
+/*    -fx-border-color: transparent;*/
+/*    -fx-font-size: 14px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-padding: 10px 20px;*/
+/*}*/
+
+.button {
+    -fx-border-radius: 0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+}
+
+/* Style for the button to add items */
+.button-add {
+    -fx-background-color: #4CAF50; /* Green */
+}
+
+/* Style for the button to remove items */
+.button-remove {
+    -fx-background-color: #f44336; /* Red */
+}
+
+/* Style for the order/finish button */
+.button-order {
+    -fx-background-color: #2196F3; /* Blue */
+}
+
+/* Darker color when button is pressed */
+.button:pressed {
+    -fx-background-color: darken(rgb(0, 0, 0), 20%);
+}

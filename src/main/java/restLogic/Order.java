@@ -53,4 +53,7 @@ public class Order  {
         }
         return total ;
     }
+    public void clearOrder () {
+        orderItemList.clear();
+    }
 }

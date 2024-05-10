@@ -12,7 +12,7 @@ public class Restaurant {
     Menu mainMenu;
     Double availableCash  ;
     private List<Table> tablesList = new ArrayList<>();
-    Order takeaway;
+    Order takeaway = new Order();
 
 
     public Restaurant(String name, String address , int noTables) {
@@ -27,14 +27,12 @@ public class Restaurant {
     public List<Table> getTables() {
         return tablesList;
     }
-
     public Menu getMainMenu() {
         return mainMenu;
     }
-
     public Double getAvailableCash() {return availableCash;}
-
     public void setAvailableCash(Double availableCash) {
         this.availableCash = availableCash;
     }
+    public Order getTakeaway() {return takeaway;}
 }

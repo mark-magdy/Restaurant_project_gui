@@ -78,6 +78,8 @@ public class TableGui {
         layout.setSpacing(100);
 //        layout.setAlignment(Pos.center);
         scene = new Scene(layout);
+        scene.getStylesheets().add(getClass().getResource("OrderView.css").toExternalForm());
+
         return scene;
     }
 
@@ -94,6 +96,8 @@ public class TableGui {
             Label labelName = new Label("     - " + items.get(j).getName());
             Button plus = new Button("+"),
                     minus = new Button("-");
+            plus.getStyleClass().add("button-add");
+            minus.getStyleClass().add("button-remove");
             int finalJ = j;
             plus.setOnAction(e -> {
                 // table.addItemInOrder();
