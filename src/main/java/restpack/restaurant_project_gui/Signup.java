@@ -19,14 +19,14 @@ public class Signup {
         Button SignupButton = new Button("Signup");
         GridPane grid2 = new GridPane();
 
-        Label nameLabel = new Label("Name:");
+        Label Name = new Label("Name:");
         TextField nameField = new TextField();
-        Label passwordLabel = new Label("Password:");
-        PasswordField passwordField = new PasswordField();
-        Label checkPasswordLabel = new Label("Confirm Password:");
-        PasswordField confirmPasswordField = new PasswordField();
-        Label jobLabel = new Label("Job:");
-        TextField jobField = new TextField();
+        Label Password = new Label("Password:");
+        PasswordField passwordfield = new PasswordField();
+        Label CheckPassword = new Label("Confirm Password:");
+        PasswordField CPasswordfield = new PasswordField();
+        Label Job = new Label("Job:");
+        TextField JobField = new TextField();
 
         Button Back = new Button("Back");
 
