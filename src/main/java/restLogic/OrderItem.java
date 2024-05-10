@@ -1,6 +1,5 @@
 package restLogic;
-
-import MenuPack.MenuItem;
+import MenuPack.*;
 
 public class OrderItem {
     private MenuItem menuItem ;
