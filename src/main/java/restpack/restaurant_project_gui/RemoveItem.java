@@ -1,5 +1,5 @@
 package restpack.restaurant_project_gui;
-
+import MenuPack.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

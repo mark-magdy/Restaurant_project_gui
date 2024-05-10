@@ -1,6 +1,7 @@
 package restLogic;
 
 import java.util.List;
+import MenuPack.*;
 
 public class Table {
     private Table.State state;

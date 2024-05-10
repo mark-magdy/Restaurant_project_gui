@@ -1,6 +1,8 @@
 package restLogic;
 
 
+import MenuPack.Menu;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,5 @@
 package restLogic;
+import MenuPack.*;
 
 public class OrderItem {
     private MenuItem menuItem ;
