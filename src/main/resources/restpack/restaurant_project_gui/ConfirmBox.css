@@ -11,7 +11,7 @@
 
 .button {
     -fx-font-size: 15px;
-    -fx-background-color: #5cb85c; /* Green color for the 'YES' button */
+    -fx-background-color: #d9534f; /* Green color for the 'YES' button */
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-font-family: 'Arial', sans-serif;
@@ -19,16 +19,16 @@
 }
 
 .button:hover {
-    -fx-background-color: #4cae4c; /* Darker green on hover */
+    -fx-background-color: #c9302c; /* Darker green on hover */
 }
 
 #yesButton {
     -fx-font-size: 15px;
-    -fx-background-color: #d9534f; /* Red color for the 'NO' button */
+    -fx-background-color: #5cb85c; /* Red color for the 'NO' button */
 }
 
 #yesButton:hover {
-    -fx-background-color: #c9302c; /* Darker red on hover */
+    -fx-background-color: #4cae4c; /* Darker red on hover */
 }
 
 

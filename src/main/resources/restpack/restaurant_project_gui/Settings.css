@@ -1,11 +1,11 @@
-.root {
+xz.root {
     -fx-padding: 20;
     -fx-background-color: #e0e0e0;
     -fx-background-image:url('backgrounds/root.jpg') ;
 
 }
 .button {
-    -fx-background-color: #575757;
+    -fx-background-color: #89CFF0;
     -fx-font-size: 16;
     -fx-display: inline-block;
     -fx-text-align: center;
@@ -15,18 +15,28 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-cursor: hand;
+
 }
+.button:hover {
+    -fx-background-color: #6495ED;
+}
+
 .button_back{
-    -fx-background-color: #Dc9656;
+    -fx-background-color:#D8BFD8;
     -fx-font-size: 16;
     -fx-display: inline-block;
     -fx-text-align: center;
     -fx-spacing: 30 ;
-    -fx-min-height: 50;
-    -fx-min-width: 70;
+    -fx-min-height: 20;
+    -fx-min-width: 50;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-cursor: hand;
+
+
+}
+.button_back:hover {
+    -fx-background-color: #BAA9D2;
 }
 .button_add_remove{
     -fx-background-color: #Dc9656;
