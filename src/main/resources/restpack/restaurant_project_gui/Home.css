@@ -1,14 +1,16 @@
 .root {
     -fx-padding: 20;
     -fx-background-color: #e0e0e0;
+    -fx-background-image:url('backgrounds/root.jpg') ;
 }
 
 .button-big {
-    -fx-background-color: #575757;
+    -fx-background-color: #699ebb;
     -fx-font-size: 16;
+    -fx-background-radius: 100px;
     -fx-display: inline-block;
     -fx-text-align: center;
-    -fx-spacing: 30 ;
+    -fx-spacing: 50 ;
     -fx-min-height: 100;
     -fx-min-width: 100;
     -fx-text-fill: white;

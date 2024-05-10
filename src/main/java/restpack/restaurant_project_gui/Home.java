@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -12,7 +14,6 @@ import restLogic.Restaurant;
 
 
 public class Home {
-
     Button takeAwayBut = new Button("TakeAway"),
             dineIn = new Button("DineIn"),
             settings = new Button("Settings"),
@@ -60,7 +61,7 @@ public class Home {
         loginBtn.setOnAction(e -> {
             if (asuResto.getStateOfLogin() == 0) {
                 asuResto.setStateOfLogin((login.display() ? 2 : 0));
-                loginBtn.setText("Logout");
+                if (asuResto.getStateOfLogin()>0)loginBtn.setText("Logout");
             } else {
                 asuResto.setStateOfLogin(0);
                 loginBtn.setText("Login");
@@ -68,18 +69,24 @@ public class Home {
         });
         loginBtn.setText((asuResto.getStateOfLogin()>0?"Logout" : "Login"));
         firstRow.getChildren().addAll(loginBtn,signupBtn);
+        firstRow.setSpacing(10);
         signupBtn.setAlignment(Pos.TOP_RIGHT);
         firstRow.setAlignment(Pos.TOP_RIGHT);
         settings.getStyleClass().add("button-big");
         takeAwayBut.getStyleClass().add("button-big");
         dineIn.getStyleClass().add("button-big");
         signupBtn.setId("bb-signup");
-        col.getChildren().addAll(firstRow, layout);
+        Image icon = new Image(getClass().getResourceAsStream("iconR .png"));
+        ImageView imageView = new ImageView(icon);
+        StackPane st = new StackPane();
+        st.getChildren().add(imageView);
+        st.setAlignment(Pos.CENTER);
+        col.getChildren().addAll(firstRow,st, layout);
         layout.setId("hbox");
         layout.setAlignment(Pos.CENTER);
         layout.getChildren().removeAll();
         layout.getChildren().addAll(dineIn, takeAwayBut, settings);
-        col.setSpacing(100);
+        col.setSpacing(20);
         scene = new Scene(col);
         scene.getStylesheets().add(getClass().getResource("Home.css").toExternalForm());
         return scene;

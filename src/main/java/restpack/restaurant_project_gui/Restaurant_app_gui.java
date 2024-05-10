@@ -26,7 +26,7 @@ public class Restaurant_app_gui extends Application {
         window= stage ;
         window.setWidth(800);window.setHeight(500);
         window.setTitle("ASU Restaurant");
-        Image icon = new Image(getClass().getResourceAsStream("icon .jpeg"));
+        Image icon = new Image(getClass().getResourceAsStream("iconR .png"));
         window.getIcons().add(icon);
         window.setOnCloseRequest(e -> {
             e.consume();

@@ -32,6 +32,8 @@
 .root {
     -fx-padding: 20;
     -fx-background-color: #e0e0e0;
+    -fx-background-image:url('backgrounds/root.jpg') ;
+
 }
 .button {
     -fx-border-radius: 0;
