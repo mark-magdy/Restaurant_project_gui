@@ -42,6 +42,10 @@ public class Table {
     }
     public void clearTable () {
         state = State.EMPTY;
-        order = new Order();
+        order.clearOrder();
+    }
+
+    public Order getOrder() {
+        return order;
     }
 }

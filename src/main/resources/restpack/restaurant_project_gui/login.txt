@@ -5,5 +5,10 @@ Kiro 2100272 Worker
 Fady 2101653 Worker
 0 0 0
 a a a
+a a Manager
+tasneem 1234 Manager
+s s Manager
 try 123 Manager
 try2 123 Manager
+
+aax aaxx aaxx
