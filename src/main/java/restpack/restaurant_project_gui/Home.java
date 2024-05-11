@@ -61,6 +61,7 @@ public class Home {
         loginBtn.setOnAction(e -> {
             if (asuResto.getStateOfLogin() == 0) {
                 asuResto.setStateOfLogin(login.display());
+                System.out.println(asuResto.getStateOfLogin());
                 if (asuResto.getStateOfLogin()>0)loginBtn.setText("Logout");
             } else {
                 asuResto.setStateOfLogin(0);

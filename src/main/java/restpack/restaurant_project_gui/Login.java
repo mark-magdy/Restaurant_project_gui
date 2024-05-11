@@ -62,12 +62,12 @@ public class Login {
                         if (arrOfStr[1].equals(passwordInput))
                         {
                             if(arrOfStr[2].equals("Manager")) {
-                                returnValue.set(1);
+                                returnValue.set(2);
                                 message.setText("Manager");
                                 LoginStage.close();
                                 break; }
                             else if (arrOfStr[2].equals("Worker")){
-                                returnValue.set(2);
+                                returnValue.set(1);
                                 message.setText("Worker");
                                 LoginStage.close();
                                 break;
