@@ -1,5 +1,9 @@
 package restpack.restaurant_project_gui;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -51,6 +55,11 @@ public class Login {
             try {
                 String resourceUrl = getClass().getResource("login.txt").getPath();
                 System.out.println("path ="+resourceUrl);
+                try {
+                    Files.writeString(Paths.get("src/main/resources/restpack/restaurant_project_gui/login.txt"), "", StandardOpenOption.APPEND);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 Scanner scanner = new Scanner(getClass().getResourceAsStream("login.txt"));
                 while (scanner.hasNextLine()) {

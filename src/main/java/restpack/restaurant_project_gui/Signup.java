@@ -71,7 +71,13 @@ public class Signup {
                     if (passwordInput.equals(checkPasswordInput)) {
                         StringBuilder contentBuilder = new StringBuilder();
                         contentBuilder.append("\n").append(line);
-                        Files.write(Paths.get("src/main/resources/restpack/restaurant_project_gui/login.txt"), contentBuilder.toString().getBytes(), StandardOpenOption.APPEND);
+                        Files.write(Paths.get("src/main/resources/restpack/restaurant_project_gui/login.txt")
+                                , contentBuilder.toString().getBytes(), StandardOpenOption.APPEND, StandardOpenOption.WRITE);
+                        try {
+                            Files.writeString(Paths.get("src/main/resources/restpack/restaurant_project_gui/login.txt"), "", StandardOpenOption.APPEND);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         message.setText("Registered");
                     } else {
                         message.setText("Unmatched Passwords");
