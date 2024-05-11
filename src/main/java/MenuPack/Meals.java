@@ -2,10 +2,35 @@ package MenuPack;
 
 import java.util.ArrayList;
 
-public class Meals extends MenuSection {
+public class Meals extends MenuSection implements Offered{
    private String name;
    private String description;
- public Meals(String name)
+
+   private double price=0;
+
+
+
+    @Override
+    public void offer(int discountPercent) {
+        this.price*=(discountPercent/100.0);
+
+    }
+    public void setPrice()
+    {
+        double total=0;
+        for(int i=0;i<getSectionSize();i++)
+        {
+            total+=quatities.get(i)*getItems().get(i).getPrice();
+        }
+        this.price=total;
+
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public Meals(String name)
  {
      this.name=name;
  }
@@ -91,15 +116,7 @@ public class Meals extends MenuSection {
          else if(getItems().get(i)instanceof Drinks)drink= drink+(getItems().get(i).getName())+" "+quatities.get(i).toString()+", ";
 description=appetizer+food+drink;
     }
-    public double getPrice()
-    {
-        double total=0;
-        for(int i=0;i<getSectionSize();i++)
-        {
-            total+=quatities.get(i)*getItems().get(i).getPrice();
-        }
-        return total;
-    }
+
 
 
 }

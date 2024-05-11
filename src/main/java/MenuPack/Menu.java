@@ -85,9 +85,13 @@ public class Menu {
     {
         for(MenuSection sec:sections)
         {
-            for(MenuItem m:sec.getItems())
+            for(int i=0;i<sec.getSectionSize();i++)
             {
-                if(m.getName()==name)sec.removeItem(m);
+                MenuItem m=sec.getItems().get(i);
+               if(m.getName().equals(name))
+               {
+                   sec.getItems().remove(m);
+               }
             }
         }
     }
