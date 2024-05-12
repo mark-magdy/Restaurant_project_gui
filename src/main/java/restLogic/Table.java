@@ -7,7 +7,6 @@ import MenuPack.*;
 public class Table {
     private Table.State state;
 
-    //    int state ; // TODO: need ot be updated to enum
     public enum State {
         EMPTY,
         HAVE_ORDER,
