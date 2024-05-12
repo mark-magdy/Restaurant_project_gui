@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -15,6 +16,8 @@ public class ConfirmBox {
     public boolean display(String title , String msg  ) {
         Stage window = new Stage () ;
         window.initModality(Modality.APPLICATION_MODAL);
+        Image icon = new Image(getClass().getResourceAsStream("iconR .png"));
+        window.getIcons().add(icon);
         window.setTitle(title);
         window.setMinWidth(400);
 

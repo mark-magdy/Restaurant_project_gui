@@ -3,6 +3,7 @@ package restpack.restaurant_project_gui;
 import javafx.geometry.*;
 import javafx.scene.control.Label;
 import javafx.scene.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -16,6 +17,8 @@ public class Alert {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(500);
+        Image icon = new Image(getClass().getResourceAsStream("iconR .png"));
+        window.getIcons().add(icon);
 
         // label Alert msg
         Label label = new Label();
