@@ -43,7 +43,8 @@ public class Desserts_gui {
 
 
         Button back = new Button("Back");
-        back.getStyleClass().add("button_back");
+        back.setId("backBtn");
+        //back.getStyleClass().add("button_back");
         Settrngs = home.createScene(window,asuResto);
         back.setOnAction(e ->{
             window.setScene(Settrngs);
@@ -63,7 +64,7 @@ public class Desserts_gui {
         settings.setConstraints(additem,0,0);
         settings.setConstraints(removeitem,1,0);
         //settings.setConstraints(updatePrice,0,1);
-       // settings.setConstraints(showTotalinput,1,1);
+        // settings.setConstraints(showTotalinput,1,1);
         settings.getChildren().addAll(additem,removeitem);
 
 

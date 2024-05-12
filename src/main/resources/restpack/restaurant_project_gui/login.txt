@@ -2,18 +2,4 @@ Mark 2100572 Manager
 Jessica 2100633 Manager
 Youstina 2100993 Worker
 Kiro 2100272 Worker
-Fady 2101653 Worker
-0 0 0
-a a a
-a a Manager
-tasneem 1234 Manager
-s s Manager
-try 123 Manager
-try2 123 Manager
-
-aax aaxx aaxx
-Mario 123456 Manager
-superMario 111 Manager
-engjoy  1111 Worker
-s s Worker
-d d Worker
+Fady 2101653 Manager

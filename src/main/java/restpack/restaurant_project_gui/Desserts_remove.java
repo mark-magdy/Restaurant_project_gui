@@ -50,7 +50,8 @@ public class Desserts_remove {
 
 
         Button removeButton=new Button("Remove");
-        removeButton.getStyleClass().add("button_add_remove");
+        back.setId("backBtn");
+        //removeButton.getStyleClass().add("button_add_remove");
 
         removeButton.setOnAction(e->deleteButtonCliced(asuResto));
 

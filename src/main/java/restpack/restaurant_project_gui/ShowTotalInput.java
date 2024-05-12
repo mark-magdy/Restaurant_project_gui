@@ -22,10 +22,11 @@ public class ShowTotalInput {
         });
 
         Label label=new Label("The total input is " + asuResto.getAvailableCash());
-
+        label.setId("labelID");
         HBox h=new HBox();
         h.getChildren().add(back);
         VBox v=new VBox(h,label);
+        v.setSpacing(20);
         scene=new Scene(v);
         scene.getStylesheets().add(getClass().getResource("Settings.css").toExternalForm());
         return scene;

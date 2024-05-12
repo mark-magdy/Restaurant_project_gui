@@ -45,7 +45,8 @@ public class Appetizers_Gui {
 
 
         Button back = new Button("Back");
-        back.getStyleClass().add("button_back");
+        back.setId("backBtn");
+        //back.getStyleClass().add("button_back");
         Settings = setgui.createScene(window,asuResto);
         back.setOnAction(e ->{
             window.setScene(Settings);

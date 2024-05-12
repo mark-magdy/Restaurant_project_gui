@@ -1,8 +1,5 @@
 package restpack.restaurant_project_gui;
 
-import MenuPack.Appetizers;
-import MenuPack.Drinks;
-import MenuPack.Food;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.layout.GridPane;
@@ -20,12 +17,19 @@ public class SettingsGui {
     Button Appetizer=new Button("Appetizers");
 
     Button back=new Button();
+    Button showTotalInputBtn =new Button();
 
-    BorderPane borderPane = new BorderPane();
+
+    VBox borderPane = new VBox();
     public Scene createScene (Stage window , Restaurant asuResto){
 
         Appetizers_Gui app_o=new Appetizers_Gui();
         Desserts_gui  dess_o=new Desserts_gui();
+        ShowTotalInput showTotalInputObj = new ShowTotalInput();
+
+     /*   ShowTotalInput.setOnAction(e->
+                );*/
+        //ShowTotalInput.getStyleClass().add("button_ShowInput");
 
         Appetizer.setOnAction(e -> {
             Scene tmp = app_o.createScene(window,asuResto);
@@ -35,7 +39,11 @@ public class SettingsGui {
             window.setScene(tmp);});
 
 
+
+
+
         Button back = new Button("Back");
+        back.setId("backBtn");
         back.getStyleClass().add("button_back");
         homeScene = home.createScene(window,asuResto);
 
@@ -45,9 +53,16 @@ public class SettingsGui {
         } );
 
 
-
-
-
+        HBox h=new HBox();
+        showTotalInputBtn.setAlignment(Pos.CENTER);
+        h.getChildren().addAll(back, showTotalInputBtn);
+        h.setPadding(new Insets(10,10,10,10));
+        h.setSpacing(180);
+        showTotalInputBtn.setText("Stats");
+        showTotalInputBtn.setOnAction(e -> {
+            Scene tmp = showTotalInputObj.createScene(window,asuResto);
+            window.setScene(tmp);
+        });
 
 
         GridPane settings =new GridPane ();
@@ -62,10 +77,8 @@ public class SettingsGui {
         settings.getChildren().addAll(Foods,Drinks,Desserts,Appetizer);
 
 
-        borderPane.setTop(back);
-        borderPane.setCenter(settings);
-        BorderPane.setAlignment(back,Pos.TOP_LEFT);
-        BorderPane.setAlignment(settings,Pos.CENTER);
+        borderPane.getChildren().addAll(h,settings);
+
         scene =new Scene(borderPane) ;
         scene.getStylesheets().add(getClass().getResource("Settings.css").toExternalForm());
         return scene;
