@@ -15,7 +15,7 @@ public class Table {
     Order order ;
 
     public Table() {
-        State state = State.EMPTY;
+        state = State.RESERVED;
         order = new Order();
     }
 
@@ -42,7 +42,7 @@ public class Table {
     }
     public void clearTable () {
         state = State.EMPTY;
-        order.clearOrder();
+        order.finishOrder();
     }
 
     public Order getOrder() {

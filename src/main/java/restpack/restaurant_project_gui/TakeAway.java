@@ -183,9 +183,8 @@ public class TakeAway extends OrderView {
             ConfirmBox checkOrdering = new ConfirmBox();
             Boolean chck = checkOrdering.display("Reciept Request" , "Are You Sure want to get Receipt and t7asb");
             if (chck){
-                //TODO: decrease stock Items
                 asuResto.setAvailableCash(asuResto.getAvailableCash()+ orderToView.getBill());
-                orderToView.clearOrder();
+                orderToView.finishOrder();
                 update();
             }
         });

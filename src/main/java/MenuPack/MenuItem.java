@@ -2,8 +2,8 @@ package MenuPack;
 
 import java.util.Objects;
 
-public abstract    class MenuItem implements Comparable<MenuItem> {
-    private String name;
+public abstract class MenuItem implements Comparable<MenuItem> {
+     private String name;
      private double price;
       public int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
      private String comment;
@@ -19,12 +19,12 @@ public abstract    class MenuItem implements Comparable<MenuItem> {
         this.price = price;
         this.stockQuantity = quantity;
     }
-
-    public MenuItem(String name, int price) {
-        this.name = name;
-        this.price = price;
-        stockQuantity = 1 ;
-    }
+//
+//    public MenuItem(String name, int price) {
+//        this.name = name;
+//        this.price = price;
+//        stockQuantity = 1 ;
+//    }
 
     public String getName() {
         return name;
@@ -68,5 +68,4 @@ public abstract    class MenuItem implements Comparable<MenuItem> {
         if(this.price>o.price)return 1;
         return 0;
     }
-
 }
