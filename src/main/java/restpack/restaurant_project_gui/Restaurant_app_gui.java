@@ -18,7 +18,7 @@ public class Restaurant_app_gui extends Application {
         Restaurant asuResto = new Restaurant("ASU", "Abdo Basha Street",9);
         System.out.println("resto in main table ref"+ asuResto.getTables().get(0));
         window= stage ;
-        window.setWidth(1300);window.setHeight(700);
+        window.setWidth(900);window.setHeight(600);
         window.setTitle("ASU Restaurant");
         Image icon = new Image(getClass().getResourceAsStream("iconR .png"));
         window.getIcons().add(icon);

@@ -6,8 +6,8 @@ public class MealItem extends MenuItem {
    public MealItem (String name,String description,double price,int stockQuantity)
    {
        super();
-       this.name=name +" : "+description;
-       this.price=price;
+       this.setName(name +" : "+description);
+       this.setPrice(price);
        this.stockQuantity=stockQuantity;
    }
 }

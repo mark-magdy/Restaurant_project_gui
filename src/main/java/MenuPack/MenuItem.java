@@ -58,16 +58,15 @@ public abstract class MenuItem implements Comparable<MenuItem> {
         MenuItem menuItem = (MenuItem) o;
         return Double.compare(price, menuItem.price) == 0 && stockQuantity == menuItem.stockQuantity && Objects.equals(name, menuItem.name);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, price, stockQuantity);
-    }
-
     @Override
     public int compareTo(MenuItem o) {
         if(this.price<o.price)return -1;
         if(this.price>o.price)return 1;
         return 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, stockQuantity);
     }
 }

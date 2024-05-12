@@ -118,14 +118,22 @@ public class Menu {
         this.getSections().get(6).getItems().remove(index-1);
 
     }
+ public static void main(String [] args) {
+        Menu m=new Menu();
+    Meals f=new Meals("godzilla");
+      f.addFood("fried chicken",50,3,2);
+      f.addAppetizers("fries",20,3,1);
+     f.addAppetizers("colsolo",5,3,4);
+      f.addDrinks("pepsi",10,3,3);
 
-    /*Meals f=new Meals("godzilla");
-      f.addFood("fried chicken",50.5,3,2);
-      f.addAppetizers("fries",22,3,3);
-      f.addDrinks("pepsi",10,3,1);
+     System.out.println(f.getItems().get(0).getName()+" "+f.getQuatities().get(3));
+      f.setPrice();
       f.setDescription();
       m.addMeal(f);
-      */
+     System.out.println(f.getName());
+     System.out.println(f.getDescription());
+     System.out.println(f.getPrice());
 
+ }
 
 }

@@ -38,11 +38,13 @@ public class Restaurant {
         mainMenu.addItem("Desserts", "pepsi", 10, 2);
         mainMenu.removeItem("bunnbun");
         Meals f=new Meals("godzilla");
-        f.addFood("fried chicken",50,3,1);
+        f.addFood("fried chicken",50,3,2);
         f.addAppetizers("fries",20,3,1);
-        f.addDrinks("pepsi",10,3,1);
+        f.addAppetizers("colsolo",5,3,4);
+        f.addDrinks("pepsi",10,3,3);
         f.setDescription();
         f.setPrice();
+        f.offer(10);
         mainMenu.addMeal(f);
        // mainMenu.removeMeal(1);
     }

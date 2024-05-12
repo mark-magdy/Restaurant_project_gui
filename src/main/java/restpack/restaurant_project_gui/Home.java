@@ -87,7 +87,7 @@ public class Home {
         layout.setAlignment(Pos.CENTER);
         layout.getChildren().removeAll();
         layout.getChildren().addAll(dineIn, takeAwayBut, settings);
-        col.setSpacing(20);
+        col.setSpacing(50);
         scene = new Scene(col);
         scene.getStylesheets().add(getClass().getResource("Home.css").toExternalForm());
         return scene;

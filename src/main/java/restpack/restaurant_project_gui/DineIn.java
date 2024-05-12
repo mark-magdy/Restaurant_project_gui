@@ -53,6 +53,7 @@ public class DineIn {
         grid.setVgap(30);grid.setHgap(75);
         grid.setAlignment(Pos.CENTER);
         borderPane.getChildren().addAll(back,grid);;
+        borderPane.setSpacing(30);
 //        grid.setAlignment(Pos.CENTER);
         scene =new Scene(borderPane) ;
         back.setId("backBtn");
