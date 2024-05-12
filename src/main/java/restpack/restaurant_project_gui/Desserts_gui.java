@@ -19,27 +19,27 @@ public class Desserts_gui {
     BorderPane borderPane = new BorderPane();
     public Scene createScene (Stage window , Restaurant asuResto){
 
-        UpdatePrice update=new UpdatePrice();
-        RemoveItem Remove= new RemoveItem();
-        ShowTotalInput show =new ShowTotalInput();
+       // UpdatePrice update=new UpdatePrice();
+        Desserts_remove remove= new Desserts_remove();
+        //ShowTotalInput show =new ShowTotalInput();
         Desserts_additem add =new Desserts_additem();
 
-        updatePrice.setOnAction(e -> {
+       /* updatePrice.setOnAction(e -> {
             Scene tmp = update.createScene(window,asuResto);
             window.setScene(tmp);
-        });
+        });*/
         removeitem.setOnAction(e -> {
-            Scene tmp = Remove.createScene(window,asuResto);
+            Scene tmp = remove.createScene(window,asuResto);
             window.setScene(tmp);
         });
         additem.setOnAction(e -> {
             Scene tmp = add.createScene(window,asuResto);
             window.setScene(tmp);
         });
-        showTotalinput.setOnAction(e -> {
+       /* showTotalinput.setOnAction(e -> {
             Scene tmp = show.createScene(window,asuResto);
             window.setScene(tmp);
-        });
+        });*/
 
 
         Button back = new Button("Back");
@@ -62,9 +62,9 @@ public class Desserts_gui {
         settings.setPadding(new Insets(50,50,130,220));
         settings.setConstraints(additem,0,0);
         settings.setConstraints(removeitem,1,0);
-        settings.setConstraints(updatePrice,0,1);
-        settings.setConstraints(showTotalinput,1,1);
-        settings.getChildren().addAll(additem,removeitem,updatePrice,showTotalinput);
+        //settings.setConstraints(updatePrice,0,1);
+       // settings.setConstraints(showTotalinput,1,1);
+        settings.getChildren().addAll(additem,removeitem);
 
 
         borderPane.setTop(back);

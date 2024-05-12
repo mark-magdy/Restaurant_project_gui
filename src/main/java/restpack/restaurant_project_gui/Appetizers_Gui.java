@@ -9,18 +9,20 @@ import javafx.scene.control.Button;
 import restLogic.Restaurant;
 
 public class Appetizers_Gui {
-    Scene Settrngs,scene;
+    Scene Settings,scene;
     Home home = new Home();
     Button additem =new Button("AddItem");
     Button removeitem =new Button("RemoveItem");
     Button updatePrice =new Button("UpdatePrice");
     Button showTotalinput=new Button("ShowTotalInput");
 
+    SettingsGui setgui=new SettingsGui();
+
     BorderPane borderPane = new BorderPane();
     public Scene createScene (Stage window , Restaurant asuResto){
 
         UpdatePrice update=new UpdatePrice();
-        RemoveItem Remove= new RemoveItem();
+        Appetizers_remove Remove= new Appetizers_remove();
         ShowTotalInput show =new ShowTotalInput();
         Appe_additem add =new Appe_additem();
 
@@ -44,9 +46,9 @@ public class Appetizers_Gui {
 
         Button back = new Button("Back");
         back.getStyleClass().add("button_back");
-        Settrngs = home.createScene(window,asuResto);
+        Settings = setgui.createScene(window,asuResto);
         back.setOnAction(e ->{
-            window.setScene(Settrngs);
+            window.setScene(Settings);
         } );
 
 
@@ -62,9 +64,9 @@ public class Appetizers_Gui {
         settings.setPadding(new Insets(50,50,130,220));
         settings.setConstraints(additem,0,0);
         settings.setConstraints(removeitem,1,0);
-        settings.setConstraints(updatePrice,0,1);
-        settings.setConstraints(showTotalinput,1,1);
-        settings.getChildren().addAll(additem,removeitem,updatePrice,showTotalinput);
+       // settings.setConstraints(updatePrice,0,1);
+        //settings.setConstraints(showTotalinput,1,1);
+        settings.getChildren().addAll(additem,removeitem);
 
 
         borderPane.setTop(back);

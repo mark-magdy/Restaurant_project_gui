@@ -24,6 +24,8 @@ public class Desserts_additem {
     Scene dess, scene;
     Desserts_gui desserts_gui=new Desserts_gui();
 
+    Alert alert =new Alert();
+
     TableView<Desserts> table;
     TableColumn <Desserts,String> namecoulmn= new TableColumn<>("ItemName");
     TableColumn <Desserts,Double> pricecoulmn= new TableColumn<>("ItemPrice");
@@ -80,12 +82,24 @@ public class Desserts_additem {
 
 
     public  void addbuttonclicked(Restaurant asuResto){
-        Desserts temp =new Desserts();
+
+        try{
+            String name =nameinput.getText();
+            double price=Double.parseDouble(priceinput.getText());
+            int quantity=Integer.parseInt(quantityinput.getText());
+            Desserts temp =new Desserts();
         asuResto.getMainMenu().addItem("Desserts",nameinput.getText(),Double.parseDouble(priceinput.getText()),Integer.parseInt(quantityinput.getText()));
         temp.setName(nameinput.getText());
         temp.setPrice(Double.parseDouble(priceinput.getText()));
         temp.setStockQuantity(Integer.parseInt(quantityinput.getText()));
-        table.getItems().add(temp);
+        table.getItems().add(temp);}
+        catch(NumberFormatException e){
+            System.out.println(e.getMessage());
+            alert.display("Error Input" , "Please Enter valid inputs" );
+        }
+        nameinput.clear();
+        priceinput.clear();
+        quantityinput.clear();
     }
 
 

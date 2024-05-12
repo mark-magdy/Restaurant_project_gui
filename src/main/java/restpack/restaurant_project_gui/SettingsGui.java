@@ -24,29 +24,6 @@ public class SettingsGui {
     BorderPane borderPane = new BorderPane();
     public Scene createScene (Stage window , Restaurant asuResto){
 
-       // UpdatePrice update=new UpdatePrice();
-       // RemoveItem Remove= new RemoveItem();
-       // ShowTotalInput show =new ShowTotalInput();
-      //  AddItem add =new AddItem();
-
-
-
-       /* updatePrice.setOnAction(e -> {
-            Scene tmp = update.createScene(window,asuResto);
-            window.setScene(tmp);
-        });
-        removeitem.setOnAction(e -> {
-            Scene tmp = Remove.createScene(window,asuResto);
-            window.setScene(tmp);
-        });
-        additem.setOnAction(e -> {
-            Scene tmp = add.createScene(window,asuResto);
-            window.setScene(tmp);
-        });
-        showTotalinput.setOnAction(e -> {
-            Scene tmp = show.createScene(window,asuResto);
-            window.setScene(tmp);
-        });*/
         Appetizers_Gui app_o=new Appetizers_Gui();
         Desserts_gui  dess_o=new Desserts_gui();
 

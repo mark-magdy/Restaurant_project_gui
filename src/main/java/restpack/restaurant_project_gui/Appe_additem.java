@@ -22,6 +22,8 @@ public class Appe_additem {
     Appetizers_Gui app_gui=new Appetizers_Gui();
 
     TableView<Appetizers> table;
+
+    Alert alert =new Alert();
     TableColumn <Appetizers,String> namecoulmn= new TableColumn<>("ItemName");
     TableColumn <Appetizers,Double> pricecoulmn= new TableColumn<>("ItemPrice");
     TableColumn <Appetizers,Integer> quantitycoulmn= new TableColumn<>("ItemQuantity");
@@ -74,7 +76,7 @@ public class Appe_additem {
         scene.getStylesheets().add(getClass().getResource("Settings.css").toExternalForm());
         return scene;
     }
-Alert alert =new Alert();
+
 
     public  void addbuttonclicked(Restaurant asuResto){
 
@@ -92,6 +94,9 @@ Alert alert =new Alert();
             System.out.println(e.getMessage());
             alert.display("Error Input" , "Please Enter valid inputs" );
         }
+        nameinput.clear();
+        priceinput.clear();
+        quantityinput.clear();
     }
 
 
