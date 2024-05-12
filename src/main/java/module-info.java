@@ -6,4 +6,5 @@ module restpack.restaurant_project_gui {
 //
 //    opens restpack.restaurant_project_gui to javafx.fxml;
     exports restpack.restaurant_project_gui;
+    opens MenuPack to javafx.base;
 }

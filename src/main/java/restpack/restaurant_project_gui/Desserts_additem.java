@@ -18,23 +18,23 @@ import restLogic.Restaurant;
 
 
 
-public class AddItem {
+public class Desserts_additem {
 
 
-    Scene settings, scene;
-    SettingsGui gui = new SettingsGui();
+    Scene dess, scene;
+    Desserts_gui desserts_gui=new Desserts_gui();
 
-    TableView<Sandwiches> table;
-    TableColumn <Sandwiches,String> namecoulmn= new TableColumn<>("ItemName");
-    TableColumn <Sandwiches,Double> pricecoulmn= new TableColumn<>("ItemPrice");
-    TableColumn <Sandwiches,Integer> quantitycoulmn= new TableColumn<>("ItemQuantity");
+    TableView<Desserts> table;
+    TableColumn <Desserts,String> namecoulmn= new TableColumn<>("ItemName");
+    TableColumn <Desserts,Double> pricecoulmn= new TableColumn<>("ItemPrice");
+    TableColumn <Desserts,Integer> quantitycoulmn= new TableColumn<>("ItemQuantity");
     TextField nameinput,priceinput,quantityinput;
     public Scene createScene(Stage window, Restaurant asuResto) {
         Button back = new Button("Back");
         back.getStyleClass().add("button_back");
-        settings = gui.createScene(window, asuResto);
+        dess = desserts_gui .createScene(window, asuResto);
         back.setOnAction(e -> {
-            window.setScene(settings);
+            window.setScene(dess);
         });
         namecoulmn.setMinWidth(200);
         namecoulmn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -80,8 +80,8 @@ public class AddItem {
 
 
     public  void addbuttonclicked(Restaurant asuResto){
-        Sandwiches temp =new Sandwiches() ;
-        asuResto.getMainMenu().addItem("Sandwiches",nameinput.getText(),Double.parseDouble(priceinput.getText()),Integer.parseInt(quantityinput.getText()));
+        Desserts temp =new Desserts();
+        asuResto.getMainMenu().addItem("Desserts",nameinput.getText(),Double.parseDouble(priceinput.getText()),Integer.parseInt(quantityinput.getText()));
         temp.setName(nameinput.getText());
         temp.setPrice(Double.parseDouble(priceinput.getText()));
         temp.setStockQuantity(Integer.parseInt(quantityinput.getText()));
@@ -89,10 +89,10 @@ public class AddItem {
     }
 
 
-    public  ObservableList<Sandwiches> getitems(Restaurant asuResto){
-        ObservableList<Sandwiches> items= FXCollections.observableArrayList();
-        for(int i =0;i<asuResto.getMainMenu().getSections().get(1).getItems().size();i++)
-            items.add((Sandwiches) asuResto.getMainMenu().getSections().get(1).getItems().get(i));
+    public  ObservableList<Desserts> getitems(Restaurant asuResto){
+        ObservableList<Desserts> items= FXCollections.observableArrayList();
+        for(int i =0;i<asuResto.getMainMenu().getSections().get(3).getItems().size();i++)
+            items.add((Desserts) asuResto.getMainMenu().getSections().get(3).getItems().get(i));
         return items;
     }
 }

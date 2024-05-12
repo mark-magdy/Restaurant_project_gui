@@ -1,8 +1,5 @@
 package restpack.restaurant_project_gui;
 
-import MenuPack.Appetizers;
-import MenuPack.Drinks;
-import MenuPack.Food;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.layout.GridPane;
@@ -11,27 +8,23 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import restLogic.Restaurant;
 
-public class SettingsGui {
-    Scene homeScene,scene;
+public class Desserts_gui {
+    Scene Settrngs,scene;
     Home home = new Home();
-    Button Foods =new Button("FOODS");
-    Button Drinks =new Button("Drinks");
-    Button Desserts =new Button("Desserts");
-    Button Appetizer=new Button("Appetizers");
-
-    Button back=new Button();
+    Button additem =new Button("AddItem");
+    Button removeitem =new Button("RemoveItem");
+    Button updatePrice =new Button("UpdatePrice");
+    Button showTotalinput=new Button("ShowTotalInput");
 
     BorderPane borderPane = new BorderPane();
     public Scene createScene (Stage window , Restaurant asuResto){
 
-       // UpdatePrice update=new UpdatePrice();
-       // RemoveItem Remove= new RemoveItem();
-       // ShowTotalInput show =new ShowTotalInput();
-      //  AddItem add =new AddItem();
+        UpdatePrice update=new UpdatePrice();
+        RemoveItem Remove= new RemoveItem();
+        ShowTotalInput show =new ShowTotalInput();
+        Desserts_additem add =new Desserts_additem();
 
-
-
-       /* updatePrice.setOnAction(e -> {
+        updatePrice.setOnAction(e -> {
             Scene tmp = update.createScene(window,asuResto);
             window.setScene(tmp);
         });
@@ -46,25 +39,14 @@ public class SettingsGui {
         showTotalinput.setOnAction(e -> {
             Scene tmp = show.createScene(window,asuResto);
             window.setScene(tmp);
-        });*/
-        Appetizers_Gui app_o=new Appetizers_Gui();
-        Desserts_gui  dess_o=new Desserts_gui();
-
-        Appetizer.setOnAction(e -> {
-            Scene tmp = app_o.createScene(window,asuResto);
-            window.setScene(tmp);});
-        Desserts.setOnAction(e -> {
-            Scene tmp =dess_o.createScene(window,asuResto);
-            window.setScene(tmp);});
+        });
 
 
         Button back = new Button("Back");
         back.getStyleClass().add("button_back");
-        homeScene = home.createScene(window,asuResto);
-
-
+        Settrngs = home.createScene(window,asuResto);
         back.setOnAction(e ->{
-            window.setScene(homeScene);
+            window.setScene(Settrngs);
         } );
 
 
@@ -78,11 +60,11 @@ public class SettingsGui {
         settings.setVgap(50);
         settings.setHgap(50);
         settings.setPadding(new Insets(50,50,130,220));
-        settings.setConstraints(Foods,0,0);
-        settings.setConstraints(Drinks,1,0);
-        settings.setConstraints(Desserts,0,1);
-        settings.setConstraints(Appetizer,1,1);
-        settings.getChildren().addAll(Foods,Drinks,Desserts,Appetizer);
+        settings.setConstraints(additem,0,0);
+        settings.setConstraints(removeitem,1,0);
+        settings.setConstraints(updatePrice,0,1);
+        settings.setConstraints(showTotalinput,1,1);
+        settings.getChildren().addAll(additem,removeitem,updatePrice,showTotalinput);
 
 
         borderPane.setTop(back);
@@ -92,5 +74,5 @@ public class SettingsGui {
         scene =new Scene(borderPane) ;
         scene.getStylesheets().add(getClass().getResource("Settings.css").toExternalForm());
         return scene;
-        }
     }
+}
