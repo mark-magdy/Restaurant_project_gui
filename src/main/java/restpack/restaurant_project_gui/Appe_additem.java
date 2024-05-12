@@ -15,26 +15,23 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import restLogic.Restaurant;
 
+public class Appe_additem {
 
 
+    Scene app, scene;
+    Appetizers_Gui app_gui=new Appetizers_Gui();
 
-public class AddItem {
-
-
-    Scene settings, scene;
-    SettingsGui gui = new SettingsGui();
-
-    TableView<Sandwiches> table;
-    TableColumn <Sandwiches,String> namecoulmn= new TableColumn<>("ItemName");
-    TableColumn <Sandwiches,Double> pricecoulmn= new TableColumn<>("ItemPrice");
-    TableColumn <Sandwiches,Integer> quantitycoulmn= new TableColumn<>("ItemQuantity");
+    TableView<Appetizers> table;
+    TableColumn <Appetizers,String> namecoulmn= new TableColumn<>("ItemName");
+    TableColumn <Appetizers,Double> pricecoulmn= new TableColumn<>("ItemPrice");
+    TableColumn <Appetizers,Integer> quantitycoulmn= new TableColumn<>("ItemQuantity");
     TextField nameinput,priceinput,quantityinput;
     public Scene createScene(Stage window, Restaurant asuResto) {
         Button back = new Button("Back");
         back.getStyleClass().add("button_back");
-        settings = gui.createScene(window, asuResto);
+        app = app_gui .createScene(window, asuResto);
         back.setOnAction(e -> {
-            window.setScene(settings);
+            window.setScene(app);
         });
         namecoulmn.setMinWidth(200);
         namecoulmn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -77,22 +74,31 @@ public class AddItem {
         scene.getStylesheets().add(getClass().getResource("Settings.css").toExternalForm());
         return scene;
     }
-
+Alert alert =new Alert();
 
     public  void addbuttonclicked(Restaurant asuResto){
-        Sandwiches temp =new Sandwiches() ;
-        asuResto.getMainMenu().addItem("Sandwiches",nameinput.getText(),Double.parseDouble(priceinput.getText()),Integer.parseInt(quantityinput.getText()));
-        temp.setName(nameinput.getText());
-        temp.setPrice(Double.parseDouble(priceinput.getText()));
-        temp.setStockQuantity(Integer.parseInt(quantityinput.getText()));
-        table.getItems().add(temp);
+
+        try{
+            String name =nameinput.getText();
+            double price=Double.parseDouble(priceinput.getText());
+            int quantity=Integer.parseInt(quantityinput.getText());
+            Appetizers temp =new Appetizers();
+            asuResto.getMainMenu().addItem("Appetizers",nameinput.getText(),Double.parseDouble(priceinput.getText()),Integer.parseInt(quantityinput.getText()));
+            temp.setName(nameinput.getText());
+            temp.setPrice(Double.parseDouble(priceinput.getText()));
+            temp.setStockQuantity(Integer.parseInt(quantityinput.getText()));
+            table.getItems().add(temp);
+        }catch(NumberFormatException e){
+            System.out.println(e.getMessage());
+            alert.display("Error Input" , "Please Enter valid inputs" );
+        }
     }
 
 
-    public  ObservableList<Sandwiches> getitems(Restaurant asuResto){
-        ObservableList<Sandwiches> items= FXCollections.observableArrayList();
-        for(int i =0;i<asuResto.getMainMenu().getSections().get(1).getItems().size();i++)
-            items.add((Sandwiches) asuResto.getMainMenu().getSections().get(1).getItems().get(i));
+    public  ObservableList<Appetizers> getitems(Restaurant asuResto){
+        ObservableList<Appetizers> items= FXCollections.observableArrayList();
+        for(int i =0;i<asuResto.getMainMenu().getSections().get(0).getItems().size();i++)
+            items.add((Appetizers) asuResto.getMainMenu().getSections().get(0).getItems().get(i));
         return items;
     }
 }

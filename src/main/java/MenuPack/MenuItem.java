@@ -8,6 +8,8 @@ public abstract class MenuItem implements Comparable<MenuItem> {
       public int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
      private String comment;
 
+     public MenuItem(){}
+
     public MenuItem(String name, double price, int quantity,String comment) {
         this.name = name;
         this.price = price;
