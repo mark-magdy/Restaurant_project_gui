@@ -3,10 +3,10 @@ package MenuPack;
 import java.util.Objects;
 
 public abstract class MenuItem implements Comparable<MenuItem> {
-    private String name;
-    private double price;
-    public int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
-    private String comment;
+    protected String name;
+    protected double price;
+    protected int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
+    protected String comment;
 
     public MenuItem() {
     }

@@ -1,6 +1,7 @@
 package restLogic;
 
 
+import MenuPack.Meals;
 import MenuPack.Menu;
 import MenuPack.MenuSection;
 import MenuPack.Sandwiches;
@@ -36,6 +37,14 @@ public class Restaurant {
         mainMenu.addItem("Cold drinks", "pepsi", 10, 2);
         mainMenu.addItem("Desserts", "pepsi", 10, 2);
         mainMenu.removeItem("bunnbun");
+        Meals f=new Meals("godzilla");
+        f.addFood("fried chicken",50,3,1);
+        f.addAppetizers("fries",20,3,1);
+        f.addDrinks("pepsi",10,3,1);
+        f.setDescription();
+        f.setPrice();
+        mainMenu.addMeal(f);
+       // mainMenu.removeMeal(1);
     }
 
     public List<Table> getTables() {

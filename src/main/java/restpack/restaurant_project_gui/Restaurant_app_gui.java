@@ -1,15 +1,10 @@
 package restpack.restaurant_project_gui;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import restLogic.Restaurant;
-
 import java.io.IOException;
 
 public class Restaurant_app_gui extends Application {
@@ -23,7 +18,7 @@ public class Restaurant_app_gui extends Application {
         Restaurant asuResto = new Restaurant("ASU", "Abdo Basha Street",9);
         System.out.println("resto in main table ref"+ asuResto.getTables().get(0));
         window= stage ;
-        window.setWidth(800);window.setHeight(500);
+        window.setWidth(1300);window.setHeight(700);
         window.setTitle("ASU Restaurant");
         Image icon = new Image(getClass().getResourceAsStream("iconR .png"));
         window.getIcons().add(icon);

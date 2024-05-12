@@ -6,6 +6,10 @@ public class Meals extends MenuSection implements Offered {
     private String name;
     private String description;
     private double price = 0;
+    public ArrayList<Integer> getQuatities() {
+        return quatities;
+    }
+    ArrayList<Integer> quatities = new ArrayList<Integer>();
 
     @Override
     public void offer(int discountPercent) {
@@ -42,15 +46,11 @@ public class Meals extends MenuSection implements Offered {
         return description;
     }
 
-    public ArrayList<Integer> getQuatities() {
-        return quatities;
-    }
 
     public void setQuatities(ArrayList<Integer> quatities) {
         this.quatities = quatities;
     }
 
-    ArrayList<Integer> quatities = new ArrayList<Integer>();
 
     public void addFood(String name, double price, int stockQuantity, int quantity) {
         Food f = new Food(name, price, stockQuantity);
@@ -100,6 +100,6 @@ public class Meals extends MenuSection implements Offered {
                 appetizer = appetizer + (getItems().get(i).getName()) + " " + quatities.get(i).toString() + ", ";
             else if (getItems().get(i) instanceof Drinks)
                 drink = drink + (getItems().get(i).getName()) + " " + quatities.get(i).toString() + ", ";
-        description = appetizer + food + drink;
+        description = appetizer +"\n"+ food+"\n" + drink;
     }
 }

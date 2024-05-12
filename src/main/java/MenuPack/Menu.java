@@ -13,6 +13,8 @@ public class Menu {
         sections.add(new MenuSection("Desserts"));
         sections.add(new MenuSection("Hot drinks"));
         sections.add(new MenuSection("Cold drinks"));
+        sections.add(new MenuSection("Meals"));
+
     }
 
     public ArrayList<MenuSection> getSections() {
@@ -88,7 +90,11 @@ public class Menu {
     }
 
     public void addMeal(Meals m) {
-        meals.add(m);
+        String name=m.getName();
+        String description=m.getDescription();
+        double price=m.getPrice();
+        MealItem s=new MealItem(name,description,price,3);
+        this.sections.get(6).addItem(s);
     }
 
     public void removeMeal(Meals m) {
@@ -108,11 +114,18 @@ public class Menu {
         }
     }
 
-    public void removeMeal(String name) {
-        for (Meals m : this.meals) {
-            if (m.getName() == name) {
-                meals.remove(m);
-            }
-        }
+    public void removeMeal(int index) {
+        this.getSections().get(6).getItems().remove(index-1);
+
     }
+
+    /*Meals f=new Meals("godzilla");
+      f.addFood("fried chicken",50.5,3,2);
+      f.addAppetizers("fries",22,3,3);
+      f.addDrinks("pepsi",10,3,1);
+      f.setDescription();
+      m.addMeal(f);
+      */
+
+
 }
