@@ -1,6 +1,7 @@
 package restLogic;
 
 import java.util.List;
+
 import MenuPack.*;
 
 public class Table {
@@ -12,7 +13,8 @@ public class Table {
         HAVE_ORDER,
         RESERVED
     }
-    Order order ;
+
+    Order order;
 
     public Table() {
         state = State.RESERVED;
@@ -20,27 +22,32 @@ public class Table {
     }
 
     // methods: addItemInOrder , removeItemInOrder , getBill , ClearTable ,  ShowAlreadyOrderedItems --> return already ordered
-    public void addItemInOrder (MenuItem item){
+    public void addItemInOrder(MenuItem item) {
         order.addItem(item);
     }
-    public void removeItemInOrder (MenuItem item){
+
+    public void removeItemInOrder(MenuItem item) {
         order.removeItem(item);
     }
-    public double getBill (){
+
+    public double getBill() {
         return order.getBill();
     }
-    public List<OrderItem> getOrderItemList(){
+
+    public List<OrderItem> getOrderItemList() {
         return order.getOrderItemList();
     }
+
     public State getState() {
-        if (getBill() >0){
+        if (getBill() > 0) {
             state = State.HAVE_ORDER;
-        }else if (getBill() == 0 ) {
+        } else if (getBill() == 0) {
             state = State.EMPTY;
         }
         return this.state;
     }
-    public void clearTable () {
+
+    public void clearTable() {
         state = State.EMPTY;
         order.finishOrder();
     }

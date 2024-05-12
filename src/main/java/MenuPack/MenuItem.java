@@ -3,30 +3,26 @@ package MenuPack;
 import java.util.Objects;
 
 public abstract class MenuItem implements Comparable<MenuItem> {
-     private String name;
-     private double price;
-      public int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
-     private String comment;
+    private String name;
+    private double price;
+    public int stockQuantity;  // to check if it available or not  ... and for manager to see his stock
+    private String comment;
 
-     public MenuItem(){}
+    public MenuItem() {
+    }
 
-    public MenuItem(String name, double price, int quantity,String comment) {
+    public MenuItem(String name, double price, int quantity, String comment) {
         this.name = name;
         this.price = price;
         this.stockQuantity = quantity;
-        this.comment=comment;
+        this.comment = comment;
     }
+
     public MenuItem(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
         this.stockQuantity = quantity;
     }
-//
-//    public MenuItem(String name, int price) {
-//        this.name = name;
-//        this.price = price;
-//        stockQuantity = 1 ;
-//    }
 
     public String getName() {
         return name;
@@ -51,6 +47,7 @@ public abstract class MenuItem implements Comparable<MenuItem> {
     public void setStockQuantity(int quantity) {
         this.stockQuantity = quantity;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -66,8 +63,8 @@ public abstract class MenuItem implements Comparable<MenuItem> {
 
     @Override
     public int compareTo(MenuItem o) {
-        if(this.price<o.price)return -1;
-        if(this.price>o.price)return 1;
+        if (this.price < o.price) return -1;
+        if (this.price > o.price) return 1;
         return 0;
     }
 }

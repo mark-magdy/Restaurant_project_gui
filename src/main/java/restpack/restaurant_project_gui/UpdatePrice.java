@@ -8,9 +8,7 @@ import restLogic.Restaurant;
 
 public class UpdatePrice {
     Scene settings, scene;
-
     SettingsGui gui = new SettingsGui();
-
     public Scene createScene(Stage window, Restaurant asuResto) {
         Button back = new Button("Back");
         back.getStyleClass().add("button_back");

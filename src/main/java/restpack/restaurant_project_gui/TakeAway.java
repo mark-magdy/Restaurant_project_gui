@@ -172,7 +172,6 @@ public class TakeAway extends OrderView {
     public TakeAway() {
         firstBtnInit();
         secondBtnInit();
-//        setOrderToView();
     }
 
     @Override
@@ -189,7 +188,6 @@ public class TakeAway extends OrderView {
             }
         });
     }
-
     @Override
     public void secondBtnInit() {
         secondBtn.setText("VISA");
@@ -202,7 +200,6 @@ public class TakeAway extends OrderView {
 
     @Override
     public void setOrderToView() {
-        orderToView = asuResto.getTakeaway();
-
+//        orderToView = asuResto.getTakeaway();
     }
 }
