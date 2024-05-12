@@ -56,7 +56,9 @@ public class Login {
                 String resourceUrl = getClass().getResource("login.txt").getPath();
                 System.out.println("path ="+resourceUrl);
                 try {
-                    Files.writeString(Paths.get("src/main/resources/restpack/restaurant_project_gui/login.txt"), "", StandardOpenOption.APPEND);
+                    Files.writeString(Paths.get("src/main/resources/restpack/restaurant_project_gui/login.txt"), 
+                                      "", 
+                                      StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
